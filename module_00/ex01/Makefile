@@ -12,7 +12,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(SRCS_RAW:.cpp=.o))
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = megaphone
+NAME = phonebook
 
 all: 
 	@$(MAKE) --no-print-directory -j $(NAME)
