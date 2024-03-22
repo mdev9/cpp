@@ -1,6 +1,8 @@
 CCXX = c++
 
-SRCS_RAW =	phonebook.cpp
+SRCS_RAW =	phonebook.cpp\
+			contact.cpp\
+			main.cpp\
 
 OBJS_DIR = objs/
 
