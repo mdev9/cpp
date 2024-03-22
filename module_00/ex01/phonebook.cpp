@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:30:24 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/22 17:07:12 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:00:35 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 #include <stdlib.h>
 #include <sstream>
 #include <string>
+
+std::string	space(int space_count)
+{
+	if (space_count <= 0)
+		return ("");
+	return (" " + space(space_count - 1));
+}
+
+void	right_print(std::string str)
+{
+	int len;
+
+	len = str.length();
+	if (len > 9)
+		std::cout << str.substr(0, 9) << '.';
+	else
+		std::cout << space(10 - len) << str;
+}
 
 class	Contact
 {
@@ -49,10 +67,13 @@ class	Contact
 
 	void	display_preview(int index)
 	{
-		std::cout << index << '|'
-		<< first_name.substr(0, 10) << '|'
-		<< last_name.substr(0, 10) << '|'
-		<< nickname.substr(0, 10) << '\n';
+		std::cout << space(9) << index << '|';
+		right_print(first_name);
+		std::cout << '|';
+		right_print(last_name);
+		std::cout << '|';
+		right_print(nickname);
+		std::cout << '\n';
 	}
 
 	void	display_full()
@@ -83,12 +104,16 @@ class	PhoneBook
 	{
 		int oldest_contact_id = contacts[0].id;
 
-		for (int i = 1; i < 8; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			if (contacts[i].id < oldest_contact_id)
 				oldest_contact_id = contacts[i].id;
 		}
-		contacts[oldest_contact_id].fill_contact_info();
+		for (int i = 0; i < 8; i++)
+		{
+			if (contacts[i].id == oldest_contact_id)
+				contacts[i].fill_contact_info();
+		}
 	}
 
 	void	add_contact()
@@ -99,7 +124,6 @@ class	PhoneBook
 			{
 				if (contacts[i].id == 0)
 				{
-					std::cout << "Editing " << i << '\n';
 					contacts[i].fill_contact_info();
 					contacts[i].id = next_contact_id;
 					next_contact_id++;
@@ -174,7 +198,6 @@ int	main(void)
 			exit(0);
 		else
 			std::cout << "Invalid input!\n";
-		//std::cin.clear();
 	}
 	return (0);
 }
