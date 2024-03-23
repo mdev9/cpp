@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 12:06:47 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 12:50:08 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:25:49 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,9 @@ Zombie::~Zombie()
 void	Zombie::announce( void )
 {
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName( std::string name )
+{
+	this->name = name;
 }
