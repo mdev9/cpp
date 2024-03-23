@@ -6,41 +6,18 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:05:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 11:32:31 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:09:18 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <string>
-# include <sstream>
-# include <cstdlib>
-
-class	Contact;
-class	PhoneBook;
+# include "Contact.hpp"
 
 std::string	space(int space_count);
 void	right_print(std::string str);
 
-class	Contact
-{
-	private:
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	darkest_secret;
-		std::string	phone_number;
-
-	public:
-		int		id;
-	
-	Contact();
-	void	fill_contact_info();
-	void	display_preview(int index);
-	void	display_full();
-};
 
 class	PhoneBook
 {

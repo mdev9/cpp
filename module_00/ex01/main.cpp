@@ -6,11 +6,13 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:12:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 11:32:16 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:11:59 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+#include <iostream>
+#include <cstdlib>
 
 std::string	space(int space_count)
 {

@@ -1,8 +1,6 @@
 CCXX = c++
 
-SRCS_RAW =	Phonebook.cpp\
-			Contact.cpp\
-			main.cpp\
+SRCS_RAW =	main.cpp\
 
 OBJS_DIR = objs/
 
@@ -14,7 +12,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(SRCS_RAW:.cpp=.o))
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = phonebook
+NAME = a.out
 
 all: 
 	@$(MAKE) --no-print-directory -j $(NAME)
