@@ -1,9 +1,6 @@
 CCXX = c++
 
 SRCS_RAW =	main.cpp\
-			Zombie.cpp\
-			newZombie.cpp\
-			randomChump.cpp\
 
 OBJS_DIR = objs/
 
