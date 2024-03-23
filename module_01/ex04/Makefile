@@ -1,9 +1,6 @@
 CCXX = c++
 
 SRCS_RAW =	main.cpp\
-			Weapon.cpp\
-			HumanA.cpp\
-			HumanB.cpp
 
 OBJS_DIR = objs/
 
