@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 11:40:47 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/08 11:53:33 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/08 10:45:15 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/08 15:23:46 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "replace.h"
+#ifndef HARL_HPP
+# define HARL_HPP
+
 #include <iostream>
 
-int	main(void)
+class Harl
 {
-	std::string args[4] = {0, "test", "marde-vr", "hahahaha"};
-	replace(4, args);
-}
+	public:
+		void	complain(std::string level);
+	
+	int		getLevel(std::string level, const std::string levels[4]);
+	void	showLevel(int i);
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+};
+
+#endif

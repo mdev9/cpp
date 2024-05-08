@@ -1,8 +1,7 @@
 CCXX = c++
 
-SRCS_RAW =	replace.cpp
-
-SRCS_TEST_RAW = main.cpp
+SRCS_RAW =	main.cpp\
+			Harl.cpp\
 
 OBJS_DIR = objs/
 
@@ -10,26 +9,17 @@ SRCS_DIR = ./
 
 SRCS = $(SRCS_RAW)
 
-SRCS_TEST = $(SRCS_TEST_RAW)
-
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS_RAW:.cpp=.o))
-
-OBJS_TEST = $(addprefix $(OBJS_DIR), $(SRCS_TEST_RAW:.cpp=.o))
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = replace
-
-NAME_TEST = a.out
+NAME = harlFilter
 
 all: 
-	@$(MAKE) --no-print-directory -j $(NAME) $(NAME_TEST)
+	@$(MAKE) --no-print-directory -j $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CCXX) $(FLAGS) $(OBJS) -o $(NAME)
-
-$(NAME_TEST) : $(OBJS_TEST)
-	$(CCXX) $(FLAGS) $(OBJS_TEST) -o $(NAME_TEST)
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
@@ -42,7 +32,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(NAME_TEST)
 
 re: fclean all
 
