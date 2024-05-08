@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:51:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 18:53:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/08 10:35:13 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
     size_t start_pos = 0;
     while((start_pos = str.find(from, start_pos)) != std::string::npos) {
         str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
-    }
+        start_pos += to.length();
+	}
 }
 
 int	main(int ac, char **av)
@@ -64,7 +64,4 @@ int	main(int ac, char **av)
 	}
 	else
 		std::cout << "Couldn't open file " << infile_name << std::endl;
-
-	(void) s1;
-	(void) s2;
 }

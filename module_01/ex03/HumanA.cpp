@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:34:13 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 15:49:54 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/03/24 10:21:19 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "Weapon.hpp"
 #include <string>
 
-HumanA::HumanA(std::string name, Weapon& weapon)
+HumanA::HumanA(std::string name, class Weapon& weapon) : Weapon(weapon), name(name)
 {
-
+	
 }
 
 void	HumanA::attack()
