@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 15:42:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 15:13:38 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/09 15:38:06 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/09 15:46:52 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
+#include <iostream>
 
-int	main(void)
+ClapTrap::ClapTrap(std::string)
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	//std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
-}
+	
+};

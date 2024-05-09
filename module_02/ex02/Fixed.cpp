@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:42:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 13:24:31 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:11:02 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,16 +119,18 @@ Fixed& Fixed::operator--()
 	return *this;
 }
 
-Fixed& Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
+	Fixed tmp = *this;
 	++(*this);
-	return *this;
+	return tmp;
 }
 
-Fixed& Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
+	Fixed tmp = *this;
 	--(*this);
-	return *this;
+	return tmp;
 }
 
 

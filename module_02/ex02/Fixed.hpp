@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:43:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 13:24:34 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:11:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ class Fixed
 
 		Fixed& operator++();
 		Fixed& operator--();
-		Fixed& operator++(int);
-		Fixed& operator--(int);
+		Fixed operator++(int);
+		Fixed operator--(int);
 
 		int		getRawBits(void) const;
 		void	setRawBits(const int raw);

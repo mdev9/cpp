@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 15:42:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 15:13:38 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/09 15:38:08 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/09 15:45:37 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifdef CLAPTRAP_H
+# define CLAPTRAP_H
 
-int	main(void)
+# include <iostream>
+
+class ClapTrap
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	//std::cout << Fixed::max(a, b) << std::endl;
-	return (0);
+	std::string _Name;
+	int _hitPoints = 10;
+	int	_energyPoints = 10;
+	int	_attackDamage = 0;
+	
+	public:
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 }
+
+#endif
