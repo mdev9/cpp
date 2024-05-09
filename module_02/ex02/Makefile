@@ -1,7 +1,7 @@
 CCXX = c++
 
 SRCS_RAW =	main.cpp\
-			Harl.cpp\
+			Fixed.cpp
 
 OBJS_DIR = objs/
 
@@ -13,7 +13,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(SRCS_RAW:.cpp=.o))
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = harlFilter
+NAME = a.out
 
 all: 
 	@$(MAKE) --no-print-directory -j $(NAME)
