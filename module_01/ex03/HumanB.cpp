@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:58:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 15:39:34 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:39:11 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 
 HumanB::HumanB(std::string name)
 {
-	this->name = name;
+	_name = name;
+	_weapon = 0;
 }
 
 void	HumanB::attack()
 {
-	std::cout << name << "attacks with their " << Weapon->getType() << std::endl;
+	if (_weapon)
+		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+	else 
+		std::cout << _name << " attacks with their fists" << std::endl;
 }
 
-void	HumanB::setWeapon(class Weapon Weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	this->Weapon = &Weapon;
+	this->_weapon = &weapon;
 }

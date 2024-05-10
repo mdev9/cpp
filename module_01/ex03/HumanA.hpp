@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:31:42 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/24 10:12:08 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:24:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 
 class HumanA
 {
-	Weapon		&Weapon;
-	std::string	name;
+	Weapon		&_weapon;
+	std::string	_name;
 
 	public:
-
-	HumanA(std::string name, class Weapon &Weapon);
-	void	attack();
+		HumanA(std::string name, Weapon &weapon);
+		void	attack();
 };
 
 #endif

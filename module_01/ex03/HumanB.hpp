@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:31:42 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 15:39:55 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:51:09 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@
 
 class HumanB
 {
-	Weapon		*Weapon;
-	std::string	name;
+	Weapon		*_weapon;
+	std::string	_name;
 	
 	public:
-
-	HumanB(std::string name);
-	void	attack();
-	void	setWeapon(class Weapon Weapon);
+		HumanB(std::string name);
+		void	attack();
+		void	setWeapon(Weapon& weapon);
 };
 
 #endif

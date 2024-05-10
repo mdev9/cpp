@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:03:34 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 15:37:35 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:38:40 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int main()
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
+		jim.attack();
+	}
+	{
+		HumanB jim("Bobby");
 		jim.attack();
 	}
 	return 0;
