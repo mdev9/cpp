@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:12:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 14:11:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:27:08 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 	PhoneBook	phonebook;
 	std::string	input;
 
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "Choose an action from ADD, SEARCH, EXIT\n";
 		std::getline(std::cin, input);
@@ -45,7 +45,7 @@ int	main(void)
 			phonebook.add_contact();
 		else if (input == "SEARCH")
 			phonebook.search_contact();
-		else if (input == "EXIT")
+		else if (input == "EXIT" || std::cin.eof())
 			exit(0);
 		else
 			std::cout << "Invalid input!\n";

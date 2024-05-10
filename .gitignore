@@ -3,4 +3,5 @@ test.replace
 *.replace
 a.out
 objs/
-
+*.log
+Account

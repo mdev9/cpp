@@ -1,4 +1,2 @@
-fix phonebook (ex01 m00)
-finish module 01
-fix * operator and add a main that tests all overload operators and functions (ex02 m02) 
+fix phonebook (ex01 m00) (conditional jump when ctrl-D on search enter contact index prompt)
 ex03 module 02

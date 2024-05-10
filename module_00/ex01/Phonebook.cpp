@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:30:24 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 14:12:20 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:14:04 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	PhoneBook::replace_oldest_contact()
 	for (int i = 0; i < 8; i++)
 	{
 		if (contacts[i].id == oldest_contact_id)
-			contacts[i].fill_contact_info();
+			contacts[i].fill_all_contact_info();
 	}
 }
 
@@ -43,7 +43,7 @@ void	PhoneBook::add_contact()
 		{
 			if (contacts[i].id == 0)
 			{
-				contacts[i].fill_contact_info();
+				contacts[i].fill_all_contact_info();
 				contacts[i].id = next_contact_id;
 				next_contact_id++;
 				break;

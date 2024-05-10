@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:51:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 15:53:10 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:04:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 bool	replaceOcc(std::string& str, const std::string& from, const std::string& to)
 {
 	size_t start_pos = str.find(from);
-	if(start_pos == std::string::npos)
+	if (start_pos == std::string::npos)
 		return false;
 	str.replace(start_pos, from.length(), to);
 	return true;
 }
 
-void replaceAll(std::string& str, const std::string& from, const std::string& to) {
-    if(from.empty())
+void replaceAll(std::string& str, const std::string& from, const std::string& to)
+{
+    if (from.empty())
         return;
     size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+    while ((start_pos = str.find(from, start_pos)) != std::string::npos)
+	{
         str.replace(start_pos, from.length(), to);
         start_pos += to.length();
 	}
@@ -40,7 +42,7 @@ int	main(int ac, char **av)
 
 	if (ac != 4)
 	{
-		std::cout << "Incorrect arguments!\n";
+		std::cout << "Incorrect number of arguments!\n";
 		return (1);
 	}
 	std::ifstream infile(infile_name);

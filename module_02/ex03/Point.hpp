@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 18:05:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 16:24:26 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/10 12:51:57 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/10 13:29:05 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
-# include "Contact.hpp"
-# include <string>
-# include <cstdlib>
+#include "Fixed.hpp"
 
-std::string	space(int space_count);
-void	right_print(std::string str);
-
-
-class	PhoneBook
+class Point
 {
 	private:
-		Contact	contacts[8];
-		int		next_contact_id;
+		Fixed const _x;
+		Fixed const _y;
 
 	public:
-	
-	PhoneBook();
-	void	replace_oldest_contact();
-	void	add_contact();
-	void	display_contacts();
-	void	display_contact();
-	void	search_contact();
+		Point();
+		Point(const Fixed x, const Fixed y);
+		Point(const Point& p);
+		Point& operator=(const Point& p);
+		~Point();
+
 };
 
 #endif
