@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:42:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 15:13:38 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:43:20 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(void)
 
 	std::cout << b << std::endl;
 
-	//std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 	return (0);
 }

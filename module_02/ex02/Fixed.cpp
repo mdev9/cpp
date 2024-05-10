@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:42:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 15:11:02 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:47:53 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,32 +51,32 @@ Fixed::~Fixed()
 
 
 
-int	Fixed::operator>(const Fixed& fp)
+bool	Fixed::operator>(const Fixed& fp)
 {
 	return (_value > fp._value);
 }
 
-int	Fixed::operator<(const Fixed& fp)
+bool	Fixed::operator<(const Fixed& fp)
 {
 	return (_value < fp._value);
 }
 
-int	Fixed::operator>=(const Fixed& fp)
+bool	Fixed::operator>=(const Fixed& fp)
 {
 	return (_value >= fp._value);
 }
 
-int	Fixed::operator<=(const Fixed& fp)
+bool	Fixed::operator<=(const Fixed& fp)
 {
 	return (_value <= fp._value);
 }
 
-int	Fixed::operator==(const Fixed& fp)
+bool	Fixed::operator==(const Fixed& fp)
 {
 	return (_value == fp._value);
 }
 
-int	Fixed::operator!=(const Fixed& fp)
+bool	Fixed::operator!=(const Fixed& fp)
 {
 	return (_value != fp._value);
 }
@@ -94,14 +94,14 @@ int	Fixed::operator-(const Fixed& fp)
 	return (_value - fp._value);
 }
 
-int	Fixed::operator*(const Fixed& fp)
+Fixed	Fixed::operator*(const Fixed& fp)
 {
-	return (_value * fp._value);
+	return (this->toFloat() * fp.toFloat());
 }
 
-int	Fixed::operator/(const Fixed& fp)
+Fixed	Fixed::operator/(const Fixed& fp)
 {
-	return (_value / fp._value);
+	return (this->toFloat() / fp.toFloat());
 }
 
 
@@ -131,6 +131,29 @@ Fixed Fixed::operator--(int)
 	Fixed tmp = *this;
 	--(*this);
 	return tmp;
+}
+
+
+
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	return (a < b ? a : b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	return (a > b ? a : b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() < b.getRawBits() ? a : b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return (a.getRawBits() > b.getRawBits() ? a : b);
 }
 
 

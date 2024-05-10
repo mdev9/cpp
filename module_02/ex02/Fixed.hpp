@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:43:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/09 15:11:38 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:45:52 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,27 @@ class Fixed
 		Fixed& operator=(const Fixed& fp);
 		~Fixed();
 
-		int operator>(const Fixed& fp);
-		int operator<(const Fixed& fp);
-		int operator>=(const Fixed& fp);
-		int operator<=(const Fixed& fp);
-		int operator==(const Fixed& fp);
-		int operator!=(const Fixed& fp);
+		bool	operator>(const Fixed& fp);
+		bool	operator<(const Fixed& fp);
+		bool	operator>=(const Fixed& fp);
+		bool	operator<=(const Fixed& fp);
+		bool	operator==(const Fixed& fp);
+		bool	operator!=(const Fixed& fp);
 
-		int operator+(const Fixed& fp);
-		int operator-(const Fixed& fp);
-		int operator*(const Fixed& fp);
-		int operator/(const Fixed& fp);
+		int		operator+(const Fixed& fp);
+		int		operator-(const Fixed& fp);
+		Fixed	operator*(const Fixed& fp);
+		Fixed	operator/(const Fixed& fp);
 
-		Fixed& operator++();
-		Fixed& operator--();
-		Fixed operator++(int);
-		Fixed operator--(int);
+		Fixed&	operator++();
+		Fixed&	operator--();
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		static	Fixed& min(Fixed& a, Fixed& b);
+		static	Fixed& max(Fixed& a, Fixed& b);
+		static	const Fixed& min(const Fixed& a, const Fixed& b);
+		static	const Fixed& max(const Fixed& a, const Fixed& b);
 
 		int		getRawBits(void) const;
 		void	setRawBits(const int raw);
