@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:51:57 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 13:29:05 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/11 10:31:58 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Point
 		Point(const Point& p);
 		Point& operator=(const Point& p);
 		~Point();
-
+		Fixed getX();
+		Fixed getY();
 };
 
 #endif

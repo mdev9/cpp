@@ -6,11 +6,12 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:12:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 10:27:08 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/11 08:57:54 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include <cstdlib>
 

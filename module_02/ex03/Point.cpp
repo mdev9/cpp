@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:51:35 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 13:28:38 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/11 13:44:37 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,23 @@ Point::Point(const Point& p)
 }
 
 Point& Point::operator=(const Point& p)
-{
-	_x = p._x;
-	_y = p._y;
+{	
+	if (this != &p)
+	{
+		(Fixed &)_x = p._x;
+		(Fixed &)_y = p._y;
+	}
 	return *this;
 }
 
 Point::~Point() {}
+
+Fixed Point::getX()
+{
+	return (_x);
+}
+
+Fixed Point::getY()
+{
+	return (_y);
+}
