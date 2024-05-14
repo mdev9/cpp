@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:43:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 12:56:36 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:23:04 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const int value);
-	Fixed(const float value);
+		Fixed(const float value);
 		Fixed(const Fixed& fp);
 		Fixed& operator=(const Fixed& fp);
 		~Fixed();
