@@ -1,3 +1,2 @@
-fix phonebook (ex01 m00) (conditional jump when ctrl-D on search enter contact index prompt), make it compile
-fix ex03 module 02 Point assignement operator overload and segfault and test it
 redo module01 ex04 (optional)
+module04
