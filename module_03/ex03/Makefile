@@ -3,7 +3,8 @@ CCXX = c++
 SRCS_RAW =	main.cpp\
 			ClapTrap.cpp\
 			ScavTrap.cpp\
-			FragTrap.cpp
+			FragTrap.cpp\
+			DiamondTrap.cpp
 
 OBJS_DIR = objs/
 

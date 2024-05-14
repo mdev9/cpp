@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:38:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 15:38:44 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:59:46 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& cp)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor of ClapTrap" << _name << " called" << std::endl;
+	std::cout << "Destructor of ClapTrap " << _name << " called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

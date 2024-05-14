@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:21:11 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 16:58:58 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/14 17:01:57 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/14 17:09:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef DIAMONDTRAP_H
+# define DIAMONDTRAP_H
 
-int	main(void)
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
+
+class DiamondTrap: public ScavTrap, public FragTrap
 {
-	FragTrap FragFrag("FragFrag");
-	FragFrag.attack("TrapTrap");
-	FragFrag.takeDamage(5);
-	FragFrag.beRepaired(5);
-	FragFrag.highFivesGuys();
-}
+	private:
+		std::string _name;
+
+	public:
+		DiamondTrap(std::string name);
+		~DiamondTrap();
+
+};
+
+#endif

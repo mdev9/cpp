@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:21:11 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 16:58:58 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/14 15:45:28 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/14 15:50:18 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 
-int	main(void)
+# include "ClapTrap.hpp"
+
+class FragTrap: public ClapTrap
 {
-	FragTrap FragFrag("FragFrag");
-	FragFrag.attack("TrapTrap");
-	FragFrag.takeDamage(5);
-	FragFrag.beRepaired(5);
-	FragFrag.highFivesGuys();
-}
+	public:
+		FragTrap(std::string);
+		~FragTrap();
+		void	highFivesGuys(void);
+};
+
+#endif
