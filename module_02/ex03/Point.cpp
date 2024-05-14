@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:51:35 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/11 13:44:37 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:18:42 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ Point& Point::operator=(const Point& p)
 
 Point::~Point() {}
 
-Fixed Point::getX()
+int	Point::getX() const
 {
-	return (_x);
+	return (_x.getRawBits());
 }
 
-Fixed Point::getY()
+int Point::getY() const
 {
-	return (_y);
+	return (_y.getRawBits());
 }
