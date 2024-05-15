@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:57 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 17:09:36 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/15 10:13:35 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
 	public:
 		DiamondTrap(std::string name);
 		~DiamondTrap();
-
+		void	whoAmI();
 };
 
 #endif

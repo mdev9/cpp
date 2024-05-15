@@ -14,7 +14,7 @@ SRCS = $(SRCS_RAW)
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS_RAW:.cpp=.o))
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g -Wshadow
 
 NAME = a.out
 
