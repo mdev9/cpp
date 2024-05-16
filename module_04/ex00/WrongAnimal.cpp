@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:20:52 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 11:05:52 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:21:06 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal& cp)
+{
+	*this = cp;
+}
+
+WrongAnimal& WrongAnimal::operator=(WrongAnimal& other)
+{
+	_type = other._type;
+	return *this;
 }
 
 void	WrongAnimal::makeSound() const

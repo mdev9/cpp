@@ -1,10 +1,11 @@
-oCXX = c++
+CCXX = c++
 
 SRCS_RAW =	main.cpp\
 			Animal.cpp\
-			Brain.cpp\
 			Dog.cpp\
-			Cat.cpp
+			Cat.cpp\
+			WrongAnimal.cpp\
+			WrongCat.cpp
 
 OBJS_DIR = objs/
 

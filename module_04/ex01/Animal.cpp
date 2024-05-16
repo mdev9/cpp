@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:20:52 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 10:46:20 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:13:43 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ Animal::~Animal()
 {
 	std::cout << "Animal destructor called" << std::endl;
 }
+
+Animal::Animal(Animal& cp)
+{
+	*this = cp;
+}
+
+Animal& Animal::operator=(Animal& other)
+{
+	_type = other._type;
+	return *this;
+}	
 
 void	Animal::makeSound() const
 {

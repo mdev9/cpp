@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:28:05 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 10:53:12 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:19:10 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@ Dog::Dog(): Animal()
 {
 	Animal::_type = "Dog";
 	std::cout << "Dog constructor called" << std::endl;
+}
+
+Dog::Dog(Dog& cp)
+{
+	*this = cp;
+}
+
+Dog& Dog::operator=(Dog& other)
+{
+	_type = other._type;
+	return *this;
 }
 
 Dog::~Dog()
