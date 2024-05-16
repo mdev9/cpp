@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:45:28 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 09:32:30 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 09:59:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class FragTrap: virtual public ClapTrap
 	public:
 		FragTrap(std::string);
 		~FragTrap();
+		FragTrap(FragTrap& cp);
+		FragTrap& operator=(FragTrap& other);
 		void	highFivesGuys(void);
 };
 

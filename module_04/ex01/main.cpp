@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:47:33 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:00:00 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/15 10:19:30 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/15 13:49:02 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-# include "ClapTrap.hpp"
-
-class ScavTrap: virtual public ClapTrap
+int	main(void)
 {
-	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(ScavTrap& cp);
-		ScavTrap& operator=(ScavTrap& other);
-		void	attack(const std::string& target);
-		void	guardGate();
-};
-
-#endif
+	Animal* animals = new Animal[10];
+	delete [] animals;
+	return (0);
+}

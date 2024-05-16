@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:47:33 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:00:00 by marde-vr         ###   ########.fr       */
+/*   Created: 2024/05/15 10:28:07 by marde-vr          #+#    #+#             */
+/*   Updated: 2024/05/15 13:42:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include "ClapTrap.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class ScavTrap: virtual public ClapTrap
+class	Dog: public Animal
 {
+	private:
+		Brain *_brain;
+
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(ScavTrap& cp);
-		ScavTrap& operator=(ScavTrap& other);
-		void	attack(const std::string& target);
-		void	guardGate();
+		Dog();
+		~Dog();
 };
 
 #endif

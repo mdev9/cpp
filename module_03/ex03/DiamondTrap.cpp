@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:38 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 10:13:23 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 10:06:17 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,20 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavT
 {
 	std::cout << "_energyPoints: " << _energyPoints << std::endl;
 	std::cout << "_hitPoints: " << _hitPoints << std::endl;
+}
+
+DiamondTrap::DiamondTrap(DiamondTrap& cp): ClapTrap(cp._name + "_clap_name"), ScavTrap(cp._name), FragTrap(cp._name)
+{
+	*this = cp;
+}
+
+DiamondTrap& DiamondTrap::operator=(DiamondTrap& other)
+{
+	_name = other._name;
+	_hitPoints = other._hitPoints;
+	_energyPoints = other._energyPoints;
+	_attackDamage = other._attackDamage;
+	return *this;
 }
 
 void	DiamondTrap::whoAmI()

@@ -6,11 +6,12 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:22:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 16:42:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/16 09:53:06 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
@@ -18,6 +19,20 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
+}
+
+ScavTrap::ScavTrap(ScavTrap& cp): ClapTrap(cp._name)
+{
+	*this = cp;
+}
+
+ScavTrap& ScavTrap::operator=(ScavTrap& cp)
+{
+	_name = cp._name;
+	_attackDamage = cp._attackDamage;
+	_hitPoints = cp._hitPoints;
+	_energyPoints = cp._energyPoints;
+	return *this;
 }
 
 ScavTrap::~ScavTrap() 
