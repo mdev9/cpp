@@ -3,7 +3,8 @@ CCXX = c++
 SRCS_RAW =	main.cpp\
 			Animal.cpp\
 			Dog.cpp\
-			Cat.cpp
+			Cat.cpp\
+			Brain.cpp
 
 OBJS_DIR = objs/
 

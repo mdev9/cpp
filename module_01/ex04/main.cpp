@@ -6,20 +6,20 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:51:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 16:04:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:37:52 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
 
-bool	replaceOcc(std::string& str, const std::string& from, const std::string& to)
+std::string	replace(std::string& str, const std::string& from, const std::string& to)
 {
-	size_t start_pos = str.find(from);
-	if (start_pos == std::string::npos)
-		return false;
-	str.replace(start_pos, from.length(), to);
-	return true;
+	std::string start;
+	std::string end;
+
+	
 }
 
 void replaceAll(std::string& str, const std::string& from, const std::string& to)
@@ -29,6 +29,7 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
     size_t start_pos = 0;
     while ((start_pos = str.find(from, start_pos)) != std::string::npos)
 	{
+		std::cout << str << std::endl;
         str.replace(start_pos, from.length(), to);
         start_pos += to.length();
 	}
