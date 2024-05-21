@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:01:38 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:06:17 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:56:05 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
+	ScavTrap::_energyPoints = 50;
 	std::cout << "_energyPoints: " << _energyPoints << std::endl;
 	std::cout << "_hitPoints: " << _hitPoints << std::endl;
 }
