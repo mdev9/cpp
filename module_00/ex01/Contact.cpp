@@ -6,13 +6,14 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:11:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/21 11:07:11 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:39:05 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 #include <iostream>
+#include <iomanip>
 
 
 Contact::Contact()
@@ -42,9 +43,20 @@ void	Contact::fill_all_contact_info()
 	std::cout << "Succesfully saved new contact!" << std::endl;
 }
 
+void	right_print(std::string str)
+{
+	int len;
+
+	len = str.length();
+	if (len > 9)
+		std::cout << str.substr(0, 9) << '.';
+	else
+		std::cout << std::setw(10) << str;
+}
+
 void	Contact::display_preview(int index)
 {
-	std::cout << space(9) << index << '|';
+	std::cout << std::setw(9) << index << '|';
 	right_print(first_name);
 	std::cout << '|';
 	right_print(last_name);

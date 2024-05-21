@@ -6,32 +6,13 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:12:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/11 08:57:54 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:20:19 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include "Contact.hpp"
 #include <iostream>
 #include <cstdlib>
-
-std::string	space(int space_count)
-{
-	if (space_count <= 0)
-		return ("");
-	return (" " + space(space_count - 1));
-}
-
-void	right_print(std::string str)
-{
-	int len;
-
-	len = str.length();
-	if (len > 9)
-		std::cout << str.substr(0, 9) << '.';
-	else
-		std::cout << space(10 - len) << str;
-}
 
 int	main(void)
 {
