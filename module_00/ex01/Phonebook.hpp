@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:05:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/10 16:24:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:58:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	PhoneBook
 {
 	private:
 		Contact	contacts[8];
-		int		next_contact_id;
+		int		oldest_contact_id;
 
 	public:
 	

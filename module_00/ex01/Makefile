@@ -2,7 +2,7 @@ CCXX = c++
 
 SRCS_RAW =	Phonebook.cpp\
 			Contact.cpp\
-			main.cpp\
+			main.cpp
 
 OBJS_DIR = objs/
 

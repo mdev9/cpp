@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:11:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/11 08:57:40 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:07:11 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ Contact::Contact()
 {
 	id = 0;
 }
+
+Contact::~Contact() {}
 
 void	Contact::fill_contact_info(std::string prompt, std::string* info)
 {
