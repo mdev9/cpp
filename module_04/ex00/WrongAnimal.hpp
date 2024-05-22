@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:20:53 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:19:52 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:12:02 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class	WrongAnimal
 
 	public:
 		WrongAnimal();
-		WrongAnimal(WrongAnimal& cp);
-		WrongAnimal& operator=(WrongAnimal& other);
-		virtual	~WrongAnimal();
+		WrongAnimal(const WrongAnimal& cp);
+		WrongAnimal& operator=(const WrongAnimal& other);
+		virtual ~WrongAnimal();
 		void	makeSound() const;
-		std::string	getType() const;
+		std::string getType() const;
 };
 
 #endif

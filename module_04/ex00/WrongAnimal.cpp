@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:20:52 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:21:06 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:12:30 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal& cp)
+WrongAnimal::WrongAnimal(const WrongAnimal& cp): _type(cp._type)
 {
-	*this = cp;
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
-WrongAnimal& WrongAnimal::operator=(WrongAnimal& other)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
+	std::cout << "WrongAnimal copy assignement constructor called" << std::endl;
+	if (this == &other)
+		return *this;
 	_type = other._type;
 	return *this;
-}
-
-void	WrongAnimal::makeSound() const
-{
-	if (_type != "Cat")
-		std::cout << "Meow meow!" << std::endl;
-	else if (_type != "Dog")
-		std::cout << "Woof woof!" << std::endl;
-	else
-		std::cout << "Boo boo!" << std::endl;
-}
+}	
 
 std::string WrongAnimal::getType() const
 {
 	return _type;
+}
+
+void	WrongAnimal::makeSound() const
+{
+	std::cout << "Boo boo!" << std::endl;
 }
