@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:19:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/15 11:08:50 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:46:28 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	main(void)
 	i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
 	j->makeSound();
+	i->makeSound(); //will output the cat sound!
 	meta->makeSound();
 	delete meta;
 	delete j;

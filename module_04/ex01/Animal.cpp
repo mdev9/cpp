@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:20:52 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/16 10:13:43 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:45:45 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,26 @@ Animal::~Animal()
 	std::cout << "Animal destructor called" << std::endl;
 }
 
-Animal::Animal(Animal& cp)
+Animal::Animal(const Animal& cp): _type(cp._type)
 {
-	*this = cp;
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
-Animal& Animal::operator=(Animal& other)
+Animal& Animal::operator=(const Animal& other)
 {
+	std::cout << "Animal copy assignement constructor called" << std::endl;
+	if (this == &other)
+		return *this;
 	_type = other._type;
 	return *this;
 }	
 
-void	Animal::makeSound() const
-{
-	if (_type == "Cat")
-		std::cout << "Meow meow!" << std::endl;
-	else if (_type == "Dog")
-		std::cout << "Woof woof!" << std::endl;
-	else
-		std::cout << "Boo boo!" << std::endl;
-}
-
 std::string Animal::getType() const
 {
 	return _type;
+}
+
+void	Animal::makeSound() const
+{
+	std::cout << "Boo boo!" << std::endl;
 }
