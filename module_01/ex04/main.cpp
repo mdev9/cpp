@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:51:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/21 15:37:52 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/22 09:57:06 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include <fstream>
 #include <iostream>
 
-std::string	replace(std::string& str, const std::string& from, const std::string& to)
+std::string	replace(std::string& str, const std::string& from, const std::string& to, int start_pos)
 {
 	std::string start;
 	std::string end;
-
 	
+	start = str.substr(0, start_pos);
+	end = str.substr(start_pos + from.length(), str.length());
+	return (start + to + end);
 }
 
 void replaceAll(std::string& str, const std::string& from, const std::string& to)
@@ -29,8 +31,7 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
     size_t start_pos = 0;
     while ((start_pos = str.find(from, start_pos)) != std::string::npos)
 	{
-		std::cout << str << std::endl;
-        str.replace(start_pos, from.length(), to);
+		str = replace(str, from, to, start_pos);
         start_pos += to.length();
 	}
 }
@@ -62,7 +63,6 @@ int	main(int ac, char **av)
 				outfile << std::endl;
 		}
 		infile.close();
-		std::string string("hello $name");
 		outfile.close();
 	}
 	else
