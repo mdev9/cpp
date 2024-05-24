@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:27:39 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 15:35:43 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:29:59 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@
 
 Ice::Ice(): AMateria("ice") {}
 
-Ice::Ice(Ice& cp): AMateria(cp._type) {}
+Ice::Ice(const Ice& cp): AMateria(cp._type) {}
 
-Ice& Ice::operator=(Ice& other)
+Ice& Ice::operator=(const Ice& other)
 {
-	return *other.clone();
+	if (this != &other)
+		AMateria::operator=(other);
+	return *this;
 }
 
 Ice::~Ice() {}
 
 Ice* Ice::clone() const
 {
-	Ice* Ice;
-	return Ice;
+	return new Ice(*this);
 }
 
 void	Ice::use(ICharacter &target)

@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:27:53 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 15:28:39 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:27:24 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Ice: public AMateria
 {
 	public:
 		Ice();
-		Ice(Ice& cp);
-		Ice& operator=(Ice& other);
+		Ice(const Ice& cp);
+		Ice& operator=(const Ice& other);
 		~Ice();
 		Ice		*clone() const;
 		void	use(ICharacter &target);

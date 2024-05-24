@@ -1,8 +1,11 @@
 CCXX = c++
 
 SRCS_RAW =	main.cpp\
-			ICharacter.cpp\
-			AMateria.cpp
+			Character.cpp\
+			MateriaSource.cpp\
+			AMateria.cpp\
+			Ice.cpp\
+			Cure.cpp
 
 OBJS_DIR = objs/
 

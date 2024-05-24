@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:27:39 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 15:39:06 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:37:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,20 @@
 
 Cure::Cure(): AMateria("ice") {}
 
-Cure::Cure(Cure& cp): AMateria(cp._type) {}
+Cure::Cure(const Cure& cp): AMateria(cp._type) {}
 
-Cure& Cure::operator=(Cure& other)
+Cure& Cure::operator=(const Cure& other)
 {
-	return *other.clone();
+	if (this != &other)
+		AMateria::operator=(other);
+	return *this;
 }
 
 Cure::~Cure() {}
 
 Cure* Cure::clone() const
 {
-	Cure* Cure;
-	return Cure;
+	return new Cure(*this);
 }
 
 void	Cure::use(ICharacter &target)

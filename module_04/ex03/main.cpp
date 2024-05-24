@@ -6,12 +6,17 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:45:54 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 14:08:30 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:15:59 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
 
 int main()
 {

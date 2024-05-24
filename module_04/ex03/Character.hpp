@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:10:13 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 16:26:10 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 09:35:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 
 class Character: public ICharacter
 {
-	protected:
+	private:
+		std::string _name;
 		AMateria* _inventory[4];
 
 	public:
-		Character();
-		Character(Character& cp);
-		Character& operator=(Character& other);
+		Character(const std::string& name);
+		Character(const Character& cp);
+		Character& operator=(const Character& other);
 		~Character();
+		std::string const& getName() const;
 		void	equip(AMateria* m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
