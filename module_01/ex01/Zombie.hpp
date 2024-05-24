@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 12:05:55 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 13:34:18 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 12:53:19 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ class Zombie
 		std::string name;
 
 	public:
-	
-	~Zombie();
+		Zombie();
+		~Zombie();
 
-	void	announce( void );
-	void	setName( std::string name );
+		void	announce( void );
+		void	setName( std::string name );
 };
 
 Zombie*	zombieHorde( int N, std::string name );

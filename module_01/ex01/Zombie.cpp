@@ -6,12 +6,14 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 12:06:47 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/03/23 13:35:06 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/24 12:53:24 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <ostream>
+
+Zombie::Zombie() {}
 
 Zombie::~Zombie()
 {
