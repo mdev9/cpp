@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:12:41 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/21 14:20:19 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:23:11 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 		else if (input == "SEARCH")
 			phonebook.search_contact();
 		else if (input == "EXIT" || std::cin.eof())
-			exit(0);
+			std::exit(0);
 		else
 			std::cout << "Invalid input!\n";
 	}

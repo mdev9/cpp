@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:30:24 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/21 13:09:09 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:02:07 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,17 @@ void PhoneBook::display_contact()
 	}
 	std::cout << "Enter contact index (from 1 to " << max_i << ")\n";
 	std::getline(std::cin, str_index);
-	std::stringstream ss(str_index);
-	ss >> index;
-	if (index < 1 || index > max_i)
-		std::cout << "Invalid contact index!\n";
+	if (!str_index.empty())
+	{
+		std::stringstream ss(str_index);
+		ss >> index;
+		if (index < 1 || index > max_i)
+			std::cout << "Invalid contact index!\n";
+		else
+			contacts[index - 1].display_full();
+	}
 	else
-		contacts[index - 1].display_full();
+		std::cout << "Invalid contact index!\n";
 }
 
 void	PhoneBook::search_contact()

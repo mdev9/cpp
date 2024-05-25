@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:07:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/11 08:57:42 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:19:01 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Contact
 		std::string	darkest_secret;
 		std::string	phone_number;
 
-		void	fill_contact_info(std::string prompt, std::string* info);
+		void	fill_contact_info(std::string prompt, std::string& info);
 };
 
 #endif
