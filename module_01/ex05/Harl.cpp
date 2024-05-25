@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 10:48:36 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/08 11:30:52 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:53:40 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,9 @@
 
 void	Harl::complain(std::string level)
 {
-	void (Harl::*HarlMemFun[4])() = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
-	const std::string levels[4] = {
-		"DEBUG",
-		"INFO",
-		"WARNING",
-		"ERROR"
-	};
+	void (Harl::*HarlMemFun[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])

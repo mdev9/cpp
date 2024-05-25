@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 10:48:36 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/25 10:49:31 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 10:52:22 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void Harl::complain(std::string level)
 {
 	int levelIndex = -1;
 
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++)
 	{
