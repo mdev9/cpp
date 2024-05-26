@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:09:57 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/24 09:35:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/26 08:29:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-Character::Character(const std::string& name): _name(name) {}
+Character::Character(const std::string& name): _name(name)
+{
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = 0;
+}
 
 Character::Character(const Character& cp): _name(cp._name)
 {

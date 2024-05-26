@@ -6,14 +6,14 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:28:05 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 10:42:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/26 09:10:59 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-Cat::Cat(): Animal()
+Cat::Cat(): Animal(), _brain(new Brain())
 {
 	_type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;
@@ -42,4 +42,14 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "Meow meow!" << std::endl;
+}
+
+void Cat::setIdea(std::string idea, int index)
+{
+	_brain->_ideas[index] = idea;
+}
+
+std::string	Cat::getIdea(int index)
+{
+	return _brain->_ideas[index];
 }

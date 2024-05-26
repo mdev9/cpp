@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:28:05 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 13:12:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/25 11:21:53 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 WrongCat::WrongCat(): WrongAnimal()
 {
-	_type = "WrongCat";
+	_type = "wrongCat";
 	std::cout << "WrongCat constructor called" << std::endl;
 }
 

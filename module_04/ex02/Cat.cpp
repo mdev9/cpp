@@ -6,14 +6,14 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:28:05 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 10:42:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/26 09:04:16 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-Cat::Cat(): Animal()
+Cat::Cat(): Animal(), _brain(new Brain())
 {
 	_type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;

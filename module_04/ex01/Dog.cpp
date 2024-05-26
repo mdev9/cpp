@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:28:05 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 10:42:13 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/26 09:01:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,14 @@ Dog::~Dog()
 void	Dog::makeSound() const
 {
 	std::cout << "Woof woof!" << std::endl;
+}
+
+void Dog::setIdea(std::string idea, int index)
+{
+	_brain->_ideas[index] = idea;
+}
+
+std::string	Dog::getIdea(int index)
+{
+	return _brain->_ideas[index];
 }

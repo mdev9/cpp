@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:27:39 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/24 09:37:38 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/26 08:40:55 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-Cure::Cure(): AMateria("ice") {}
+Cure::Cure(): AMateria("cure") {}
 
 Cure::Cure(const Cure& cp): AMateria(cp._type) {}
 
