@@ -6,11 +6,10 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:51:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 09:57:06 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/28 07:36:19 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstring>
 #include <fstream>
 #include <iostream>
 

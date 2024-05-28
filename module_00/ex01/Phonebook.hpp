@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 18:05:23 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/21 14:25:01 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/28 07:37:41 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-# include <cstdlib>
 
 class	PhoneBook
 {
