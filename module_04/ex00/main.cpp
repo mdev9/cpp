@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:19:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/22 13:13:24 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/05/28 09:30:04 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ int	main(void)
 
 
 	const WrongAnimal	*wrongMeta;
-	const WrongAnimal	*wrongCat;
+	const WrongAnimal	*wrongCat1;
+	const WrongCat		*wrongCat2;
 
 	wrongMeta = new WrongAnimal();
-	wrongCat = new WrongCat();
-	std::cout << wrongCat->getType() << " " << std::endl;
+	wrongCat1 = new WrongCat();
+	wrongCat2 = new WrongCat();
+	std::cout << wrongCat1->getType() << " " << std::endl;
 	wrongMeta->makeSound(); //will NOT output the cat sound!
-	wrongCat->makeSound();
+	wrongCat1->makeSound(); //will NOT output the cat sound!
+	wrongCat2->makeSound();
 	delete wrongMeta;
-	delete wrongCat;
+	delete wrongCat1;
+	delete wrongCat2;
 	return (0);
 }
