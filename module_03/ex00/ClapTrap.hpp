@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:38:08 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/14 10:21:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/07 10:46:57 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <iostream>
 
 class ClapTrap
-{
-	std::string _name;
-	int _hitPoints;
-	int	_energyPoints;
-	int	_attackDamage;
+{	
+	private:
+		std::string _name;
+		int _hitPoints;
+		int	_energyPoints;
+		int	_attackDamage;
 	
 	public:
 		ClapTrap(std::string name);
