@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:09:57 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/26 08:29:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/10 10:34:44 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Character::Character(const Character& cp): _name(cp._name)
 	{
 		if (cp._inventory[i])
 			_inventory[i] = cp._inventory[i]->clone();
+		else
+			_inventory[i] = 0;
 	}
 }
 

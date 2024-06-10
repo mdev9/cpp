@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 08:49:07 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/26 08:29:34 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/10 10:34:58 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ MateriaSource::MateriaSource(MateriaSource& cp)
 	{
 		if (cp._templates[i])
 			_templates[i] = cp._templates[i]->clone();
+		else
+			_templates[i] = 0;
 	}
 }
 
