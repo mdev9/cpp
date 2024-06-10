@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:10:13 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/24 09:35:36 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/10 10:48:49 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Character: public ICharacter
 		void	equip(AMateria* m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
+		void	printInventory() const;
 };
 
 #endif
