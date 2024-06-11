@@ -6,48 +6,33 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/28 16:40:40 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:24:57 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::GradeTooHighException : public exception
-{
-	const char * what() const throw ()
-	{
-		return "Grade too high!"
-	}
-}
-
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-	try
-	{
-		if (grade >= 1 && grade <= 150)
-			_grade = grade;
-		else
-			throw (grade);
-	}
-	catch (int grade)
-	{
-
-	}
-
+	if (grade >= 1 && grade <= 150)
+		_grade = grade;
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat& cp)
+Bureaucrat::Bureaucrat(Bureaucrat& cp) : _name(cp._name)
 {
-	_name = cp.getName();
-	_grade = cp.getGrade();
+	*this = cp;
 }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat& other)
 {
 	if (this != &other)
 	{
-		_name = other.getName();
-		_grade = other.getGrade();
+		//_name = other._grade;
+		_grade = other._grade;
 	}
 	return *this;
 }
@@ -64,4 +49,12 @@ int	Bureaucrat::getGrade()
 	return _grade;
 }
 
+const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return "Grade is too high!";
+}
 
+const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return "Grade is too low!";
+}

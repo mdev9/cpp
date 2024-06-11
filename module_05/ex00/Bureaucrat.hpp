@@ -6,14 +6,13 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:11 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/05/28 12:48:24 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:25:49 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include <exception>
 # include <iostream>
 
 class Bureaucrat
@@ -37,7 +36,13 @@ class Bureaucrat
 		class GradeTooLowException;
 };
 
-class Bureaucrat::GradeTooLowException: std::exception {};
-class Bureaucrat::GradeTooHighException: std::exception {};
+//TODO: Implement insertion operator overload
+
+class Bureaucrat::GradeTooLowException: public std::exception {
+	const char	*what(void) const throw();
+};
+class Bureaucrat::GradeTooHighException: public std::exception {
+	const char	*what(void) const throw();
+};
 
 #endif
