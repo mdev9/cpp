@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/13 08:15:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/13 10:29:02 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& cp) : _name(cp._name)
@@ -30,36 +30,49 @@ Bureaucrat::Bureaucrat(Bureaucrat& cp) : _name(cp._name)
 Bureaucrat& Bureaucrat::operator=(Bureaucrat& other)
 {
 	if (this != &other)
-	{
-		//_name = other._grade;
-		_grade = other._grade;
-	}
+		_grade = other.getGrade();
 	return *this;
 }
 
 Bureaucrat::~Bureaucrat() {}
 
-std::string Bureaucrat::getName()
+void	Bureaucrat::upgrade()
+{
+	if (this->getGrade() > 1)
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighException();
+}
+
+void	Bureaucrat::downgrade()
+{
+	if (this->getGrade() < 150)
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
+}
+
+std::string Bureaucrat::getName() const
 {
 	return _name;
 }
 
-int	Bureaucrat::getGrade()
+int	Bureaucrat::getGrade() const
 {
 	return _grade;
 }
 
 const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return "Grade is too high!";
+	return "Grade is too high!\n";
 }
 
 const char	*Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return "Grade is too low!";
+	return "Grade is too low!\n";
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bc)
 {
-	out << bc.getName << ", bureaucrat grade " << bc.getGrade << ".\n";
+	return out << bc.getName() << ", bureaucrat grade " << bc.getGrade() << ".\n";
 }
