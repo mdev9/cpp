@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:11 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/13 10:29:01 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:31:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-#include <ostream>
+# include <ostream>
 
 class Bureaucrat
 {
