@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 12:52:38 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:09:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,8 @@ int	Form::getExecGrade() const
 
 void	Form::beSigned(Bureaucrat &bc)
 {
-	if (bc.getGrade() <= _signGrade)
-	{
+	if (bc.getGrade() <= _signGrade && !isSigned())
 		_isSigned = 1;
-		std::cout << bc.getName() << " signed " << this->getName() << std::endl;
-	}
-	else
-		std::cout << bc.getName() << " couldn't sign " << this->getName() << " because his grade is too low!" << std::endl;
 }
 
 const char *Form::GradeTooHighException::what(void) const throw()
@@ -80,5 +75,5 @@ const char *Form::GradeTooLowException::what(void) const throw()
 
 std::ostream &operator<<(std::ostream &out, const Form& form)
 {
-	return out << form.getName() << "'s status:\n" << "signed: " << form.isSigned() << std::endl << "required _signGrade to sign: " << form.getSignGrade() << std::endl << "required grade to execute: " << form.getExecGrade() << std::endl;
+	return out << form.getName() << "'s status:\n" << "signed: " << form.isSigned() << std::endl << "required grade to sign: " << form.getSignGrade() << std::endl << "required grade to execute: " << form.getExecGrade() << std::endl;
 }

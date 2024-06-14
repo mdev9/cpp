@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:59:22 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 12:48:15 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:12:21 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 {
 	// Valid form 
 	Form form1("Form1", 50, 25);
+	std::cout << form1;
 	// Invalid form, grade too high
 	try
 	{
@@ -38,10 +39,12 @@ int	main(void)
 	Bureaucrat highGrade("HighGrade", 1);
 	Bureaucrat lowGrade("LowGrade", 100);
 	Form form4("Form4", 50, 25);
+	// Invalid signing, grade too low
+	lowGrade.signForm(form4);
 	// Valid signing
-	form4.beSigned(highGrade);
-	// Invalid signing
-	form4.beSigned(lowGrade);
+	highGrade.signForm(form4);
+	//Invalid signing, form already signed
+	highGrade.signForm(form4);
 	// Copy constructor
 	Form form5(form4);
 	// Copy assignment operator
