@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/13 13:41:21 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:08:53 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	AForm::beSigned(Bureaucrat &bc)
 	if (bc.getGrade() <= _signGrade)
 		_is_signed = 1;
 	else
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 }
 
 const char *AForm::GradeTooHighException::what(void) const throw()
@@ -72,7 +72,26 @@ const char *AForm::GradeTooLowException::what(void) const throw()
 	return "Grade is too low!\n";
 }
 
+const char *AForm::FormIsNotSignedException::what(void) const throw()
+{
+	return "The form is not signed!\n";
+}
+
 std::ostream &operator<<(std::ostream &out, const AForm& form)
 {
 	return out << form.getName() << "'s status:\n" << "signed: " << form.isSigned() << std::endl << "required grade to sign: " << form.getSignGrade() << std::endl << "required grade to execute: " << form.getExecGrade() << std::endl;
+}
+
+void	AForm::execute(Bureaucrat const &executor) const
+{
+	if (_is_signed)
+	{
+		if (executor.getGrade() <= _execGrade)
+			executeAction();
+		else
+			throw GradeTooLowException();
+	}
+	else
+		throw FormIsNotSignedException();
+
 }

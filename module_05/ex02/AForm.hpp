@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:36:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/13 13:40:35 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:08:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ class AForm
 		bool	isSigned() const;
 		int	getSignGrade() const;
 		int	getExecGrade() const;
-
 		void	beSigned(Bureaucrat &bc);
+
+		void	execute(Bureaucrat const &executor) const;
+		virtual void executeAction(void) const = 0;
 
 		class GradeTooLowException: public std::exception
 		{
@@ -44,6 +46,11 @@ class AForm
 				virtual const char	*what(void) const throw();
 		};
 		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
+		class FormIsNotSignedException: public std::exception
 		{
 			public:
 				virtual const char	*what(void) const throw();
