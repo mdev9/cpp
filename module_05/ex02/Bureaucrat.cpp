@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 08:33:58 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:03:53 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,19 @@ void	Bureaucrat::signForm(AForm &form)
 			std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade is too low :c" << std::endl;
 	}
 	else
-		std::cout << this->getName() << " couldn't sign " << form.getName() << "because it is already signed!" << std::endl;
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because it is already signed!" << std::endl;
 }
 
 void	Bureaucrat::executeForm(AForm const &form)
 {
-	if (_grade <= form.getExecGrade())
+	try
 	{
 		form.execute(*this);
-		std::cout << _name << " executed " << form.getName();
 	}
-	else
-		std::cout << _name << " couldn't execute " << form.getName() << " because his grade was too low!" << std::endl;
+	catch (std::exception &e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName() << ':' << std::endl << e.what();
+		return;
+	}
+	std::cout << _name << " executed " << form.getName() << std::endl;
 }

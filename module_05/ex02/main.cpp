@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:59:22 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 10:20:35 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:02:58 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,24 @@
 
 int	main(void)
 {
-	Bureaucrat highGrade("HighGradeBureaucrat", 1);
-	Bureaucrat lowGrade("LowGradeBureaucrat", 150);
+	Bureaucrat highGrade("HighGrade", 1);
+	Bureaucrat lowGrade("LowGrade", 150);
 
 	ShrubberyCreationForm shrubberyForm("forest");
 	RobotomyRequestForm robotomyForm("Bob");
 	PresidentialPardonForm pardonForm("Bobby");
 	try
 	{
+		highGrade.executeForm(robotomyForm);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what();
+	}
+	try
+	{
 		shrubberyForm.beSigned(highGrade);
-		shrubberyForm.execute(highGrade);
+		highGrade.executeForm(shrubberyForm);
 	}
 	catch (std::exception &e)
 	{
@@ -36,7 +44,7 @@ int	main(void)
 	try
 	{
 		robotomyForm.beSigned(highGrade);
-		robotomyForm.execute(highGrade);
+		highGrade.executeForm(robotomyForm);
 	}
 	catch (std::exception &e)
 	{
@@ -45,7 +53,7 @@ int	main(void)
 	try
 	{
 		pardonForm.beSigned(highGrade);
-		pardonForm.execute(highGrade);
+		highGrade.executeForm(pardonForm);
 	}
 	catch (std::exception &e)
 	{
@@ -53,7 +61,7 @@ int	main(void)
 	}
 	try
 	{
-		shrubberyForm.execute(lowGrade);
+		lowGrade.executeForm(shrubberyForm);
 	}
 	catch (std::exception &e)
 	{
@@ -61,7 +69,7 @@ int	main(void)
 	}
 	try
 	{
-		robotomyForm.execute(lowGrade);
+		lowGrade.executeForm(robotomyForm);
 	}
 	catch (std::exception &e)
 	{
@@ -69,7 +77,7 @@ int	main(void)
 	}
 	try
 	{
-		pardonForm.execute(lowGrade);
+		lowGrade.executeForm(pardonForm);
 	}
 	catch (std::exception &e)
 	{

@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 10:08:53 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:09:45 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,12 @@ int	AForm::getExecGrade() const
 void	AForm::beSigned(Bureaucrat &bc)
 {
 	if (bc.getGrade() <= _signGrade)
+	{
 		_is_signed = 1;
+		std::cout << bc.getName() << " signed " << this->getName() << std::endl;
+	}
 	else
-		throw GradeTooLowException();
+		std::cout << bc.getName() << " couldn't sign " << this->getName() << " because his grade is too low!" << std::endl;
 }
 
 const char *AForm::GradeTooHighException::what(void) const throw()
@@ -93,5 +96,4 @@ void	AForm::execute(Bureaucrat const &executor) const
 	}
 	else
 		throw FormIsNotSignedException();
-
 }
