@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:59:22 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 11:14:33 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:48:15 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	}
 	catch (const Form::GradeTooHighException &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << e.what();
 	}
 	// Invalid form, grade too low
 	try
@@ -33,7 +33,7 @@ int	main(void)
 	}
 	catch (const Form::GradeTooLowException &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << e.what();
 	}
 	Bureaucrat highGrade("HighGrade", 1);
 	Bureaucrat lowGrade("LowGrade", 100);

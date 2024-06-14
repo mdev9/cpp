@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:36:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 10:08:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:48:37 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AForm
 {
 	private:
 		const std::string _name;
-		bool _is_signed;
+		bool _isSigned;
 		const int _signGrade;
 		const int _execGrade;
 	

@@ -6,16 +6,19 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 11:09:45 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:49:24 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(std::string name, int signGrade, int execGrade): _name(name), _signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm(std::string name, int signGrade, int execGrade): _name(name), _isSigned(0) , _signGrade(signGrade), _execGrade(execGrade)
 {
-	_is_signed = 0;
+	if (signGrade > 150)
+		throw AForm::GradeTooLowException();
+	else if (signGrade < 1)
+		throw AForm::GradeTooHighException();
 }
 
 AForm::AForm(AForm& cp): _name(cp.getName()), _signGrade(cp.getSignGrade()), _execGrade(cp.getSignGrade())
@@ -27,7 +30,7 @@ AForm& AForm::operator=(AForm& other)
 {
 	if (this != &other)
 	{
-		_is_signed = other.isSigned();
+		_isSigned = other.isSigned();
 	}
 	return *this;
 }
@@ -41,7 +44,7 @@ std::string	AForm::getName() const
 
 bool	AForm::isSigned() const
 {
-	return _is_signed;
+	return _isSigned;
 }
 
 int	AForm::getSignGrade() const
@@ -58,7 +61,7 @@ void	AForm::beSigned(Bureaucrat &bc)
 {
 	if (bc.getGrade() <= _signGrade)
 	{
-		_is_signed = 1;
+		_isSigned = 1;
 		std::cout << bc.getName() << " signed " << this->getName() << std::endl;
 	}
 	else
@@ -87,7 +90,7 @@ std::ostream &operator<<(std::ostream &out, const AForm& form)
 
 void	AForm::execute(Bureaucrat const &executor) const
 {
-	if (_is_signed)
+	if (_isSigned)
 	{
 		if (executor.getGrade() <= _execGrade)
 			executeAction();
