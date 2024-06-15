@@ -6,18 +6,20 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 13:09:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:09:31 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+Form::Form(): _name("unknown"), _isSigned(0), _signGrade(1), _execGrade(1) {}
+
 Form::Form(std::string name, int signGrade, int execGrade): _name(name), _isSigned(0) , _signGrade(signGrade), _execGrade(execGrade)
 {
-	if (signGrade > 150)
+	if (signGrade > 150 || execGrade > 150)
 		throw Form::GradeTooLowException();
-	else if (signGrade < 1)
+	else if (signGrade < 1 || execGrade < 1)
 		throw Form::GradeTooHighException();
 }
 

@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:11 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 08:18:11 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 08:55:55 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Bureaucrat
 		int	_grade;
 	
 	public:
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat& cp);
 		Bureaucrat& operator=(Bureaucrat& other);

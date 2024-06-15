@@ -6,13 +6,15 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 07:18:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 10:21:17 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 08:58:17 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
 #include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), _target("unknown"), _tree("       _-_       \n    /~~   ~~\\    \n /~~         ~~\\ \n{               }\n \\  _-     -_  / \n   ~  \\\\ //  ~   \n_- -   | | _- _  \n  _ -  | |   -_  \n      // \\\\      \n") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137), _target(target), _tree("       _-_       \n    /~~   ~~\\    \n /~~         ~~\\ \n{               }\n \\  _-     -_  / \n   ~  \\\\ //  ~   \n_- -   | | _- _  \n  _ -  | |   -_  \n      // \\\\      \n") {}
 

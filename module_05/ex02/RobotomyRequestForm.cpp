@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 07:51:47 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 10:11:54 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:05:57 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,15 @@
 #include <ctime>
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), _target("unknown")
+{
+	std::srand(std::time(0));
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target)
+{
+	std::srand(std::time(0));
+}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cp): AForm(cp)
 {
@@ -38,7 +46,6 @@ void	RobotomyRequestForm::executeAction(void) const
 	std::cout << "* drilling noises *" << std::endl;
 	std::cout << "* drilling noise intensifies *" << std::endl;
 	std::cout << "* drilling noises go BRRRRR *" << std::endl;
-	std::srand(std::time(0));
 	if (std::rand() % 2)
 		std::cout << "Behold! " << _target << " emerges triumphantly from robotomization!" << std::endl;
 	else

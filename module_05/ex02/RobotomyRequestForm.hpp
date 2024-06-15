@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:43:36 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 09:57:58 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 08:52:16 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class RobotomyRequestForm: public AForm
 
 	public:
 		void	executeAction(void) const;
+		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm &cp);
 		RobotomyRequestForm& operator=(RobotomyRequestForm& other);

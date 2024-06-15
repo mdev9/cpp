@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:39:35 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 16:06:36 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:26:22 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,22 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 		{"presidential pardon", &Intern::makePresidentialPardonForm}
 	};
 
-	for (int i = 0; i < 3; i++)
+	try
 	{
-		if (forms[i].name == name)
+		for (int i = 0; i < 3; i++)
 		{
-			std::cout << "Intern creates " << name << std::endl;
-			return (this->*forms[i].createForm)(target);
+			if (forms[i].name == name)
+			{
+				std::cout << "Intern creates " << name << std::endl;
+				return (this->*forms[i].createForm)(target);
+			}
 		}
+		throw Intern::UnknownFormException();
 	}
-	std::cout << "Intern can't create form " << name << " because it doesn't exist. Bringing some coffee instead!" << std::endl;
+	catch (const Intern::UnknownFormException &e)
+	{
+		std::cout << "Intern can't create form " << name << " because:" << std::endl << e.what() << "Bringing some coffee instead!" << std::endl;
+	}
 	return 0;
 }
 
@@ -70,4 +77,9 @@ AForm*	Intern::makeRobotomyRequestForm(std::string target)
 AForm* Intern::makePresidentialPardonForm(std::string target)
 {
 	return new PresidentialPardonForm(target);
+}
+
+const char	*Intern::UnknownFormException::what(void) const throw()
+{
+	return "Form doesn't exist!\n";
 }

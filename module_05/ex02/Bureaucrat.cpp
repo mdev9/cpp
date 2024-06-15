@@ -6,13 +6,15 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:44:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 14:20:12 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 08:51:37 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 class Form;
+
+Bureaucrat::Bureaucrat(): _name("unknown"), _grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {

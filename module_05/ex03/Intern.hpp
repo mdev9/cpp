@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:30:15 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 15:55:48 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:23:43 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ class Intern
 		Intern(Intern &cp);
 		Intern& operator=(Intern &other);
 		~Intern();
+
+		class UnknownFormException: public std::exception
+		{
+			public:
+				virtual const char	*what(void) const throw();
+		};
 };
 
 #endif

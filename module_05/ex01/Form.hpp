@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:36:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/14 12:44:35 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 08:47:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Form
 		const int _execGrade;
 	
 	public:
+		Form();
 		Form(std::string name, int signGrade, int execGrade);
 		Form(Form& cp);
 		Form& operator=(Form& other);
