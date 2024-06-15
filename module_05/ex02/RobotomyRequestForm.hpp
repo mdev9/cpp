@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:43:36 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 08:52:16 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:42:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class RobotomyRequestForm: public AForm
 		std::string _target;
 
 	public:
-		void	executeAction(void) const;
+		void	execute(Bureaucrat const &executor) const;
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm &cp);
