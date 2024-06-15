@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 08:12:37 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 08:56:35 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:38:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,15 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-void	PresidentialPardonForm::executeAction(void) const
+void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	if (isSigned())
+	{
+		if (executor.getGrade() <= getExecGrade())
+			std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+		else
+			throw GradeTooLowException();
+	}
+	else
+		throw FormIsNotSignedException();
 }

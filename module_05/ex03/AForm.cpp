@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:15:19 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 09:10:37 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:47:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,4 @@ const char *AForm::FormIsNotSignedException::what(void) const throw()
 std::ostream &operator<<(std::ostream &out, const AForm& form)
 {
 	return out << form.getName() << "'s status:\n" << "signed: " << form.isSigned() << std::endl << "required grade to sign: " << form.getSignGrade() << std::endl << "required grade to execute: " << form.getExecGrade() << std::endl;
-}
-
-void	AForm::execute(Bureaucrat const &executor) const
-{
-	if (_isSigned)
-	{
-		if (executor.getGrade() <= _execGrade)
-			executeAction();
-		else
-			throw GradeTooLowException();
-	}
-	else
-		throw FormIsNotSignedException();
 }

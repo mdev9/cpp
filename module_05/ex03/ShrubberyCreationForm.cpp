@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 07:18:03 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 08:58:17 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:42:03 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,25 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm &o
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void	ShrubberyCreationForm::executeAction(void) const
+void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	std::ofstream outfile((_target + "_shrubbery").c_str());
-	if (outfile.is_open())
+	if (isSigned())
 	{
-		for (int i = 0; i < 3; i++)
-			outfile << _tree << std::endl;
-		outfile.close();
+		if (executor.getGrade() <= getExecGrade())
+		{
+			std::ofstream outfile((_target + "_shrubbery").c_str());
+			if (outfile.is_open())
+			{
+				for (int i = 0; i < 3; i++)
+					outfile << _tree << std::endl;
+				outfile.close();
+			}
+			else
+				std::cout << "Couldn't open file " << _target + "_shrubbery" << std::endl;
+		}
+		else
+			throw GradeTooLowException();
 	}
 	else
-		std::cout << "Couldn't open file " << _target + "_shrubbery" << std::endl;
+		throw FormIsNotSignedException();
 }

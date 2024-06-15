@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:39:35 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 09:26:22 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 10:54:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 				return (this->*forms[i].createForm)(target);
 			}
 		}
-		throw Intern::UnknownFormException();
+		throw UnknownFormException();
 	}
-	catch (const Intern::UnknownFormException &e)
+	catch (const UnknownFormException &e)
 	{
 		std::cout << "Intern can't create form " << name << " because:" << std::endl << e.what() << "Bringing some coffee instead!" << std::endl;
 	}

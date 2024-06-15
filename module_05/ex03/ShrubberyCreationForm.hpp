@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:35:07 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 09:04:34 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:39:21 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm: public AForm
 		const std::string _tree;
 
 	public:
-		void	executeAction(void) const;
+		void	execute(Bureaucrat const &executor) const;
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm &cp);

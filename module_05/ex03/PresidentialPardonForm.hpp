@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:45:46 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/15 08:56:48 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/15 09:36:46 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PresidentialPardonForm: public AForm
 		std::string _target;
 
 	public:
-		void	executeAction(void) const;
+		void	execute(Bureaucrat const &executor) const;
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm &cp);
