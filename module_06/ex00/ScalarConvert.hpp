@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:09:21 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/17 08:05:24 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/18 09:53:52 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class ScalarConverter
 {
 	public:
 		static void convert(std::string literal);
+
+	private:
 		ScalarConverter();
 		ScalarConverter(ScalarConverter &cp);
 		ScalarConverter& operator=(ScalarConverter &other);
