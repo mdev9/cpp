@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:12:17 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/19 10:45:07 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:04:35 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,16 @@ int	main(void)
 	std::srand(std::time(0) * 1000 + getpid());
 
 	for (int i = 0; i < 10; i++)
-		identify(generate());
+	{
+		Base *tmp = generate();
+		identify(tmp);
+		delete tmp;
+	}
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
-		identify(*generate());
+	{
+		Base &tmp = *generate();
+		identify(tmp);
+		delete &tmp;
+	}
 }
