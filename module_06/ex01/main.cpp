@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:37:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/19 10:50:28 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/19 10:58:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ int	main(void)
 	std::cout << data2->year << std::endl;
 	std::cout << data2->liquid << std::endl;
 	std::cout << data2->number << std::endl;
+	delete data2;
 }
