@@ -6,19 +6,22 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 10:38:14 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/18 10:50:30 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/19 09:58:07 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-#include <cstdint>
 
 Serializer::Serializer() {}
 
-Serializer::Serializer(Serializer& cp) {}
+Serializer::Serializer(Serializer& cp)
+{
+	*this = cp;
+}
 
 Serializer& Serializer::operator=(Serializer& other)
 {
+	(void) other;
 	return *this;
 }
 
@@ -26,10 +29,10 @@ Serializer::~Serializer() {}
 
 uintptr_t Serializer::serialize(Data *ptr)
 {
-	
+	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data *Serializer::deserialize(uintptr_t raw)
 {
-
+	return (reinterpret_cast<Data*>(raw));
 }
