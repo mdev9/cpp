@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:09:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/18 10:25:11 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:48:27 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ void ScalarConverter::convert(std::string literal)
 	else
 		std::cout << "int: impossible" << std::endl;
 
-	if (literal == "+inf" || literal == "-inf" || literal == "nan")
+	if (literal == "+inf" || literal =="inff" || literal == "-inf" || literal == "nan")
 	{
 		std::cout << "float: " << literal << 'f' << std::endl;
 		std::cout << "double: " << literal << std::endl;
 	}
-	else if (literal == "+inff" || literal == "-inff" || literal == "nanf")
+	else if (literal == "+inff" || literal == "inff" || literal == "-inff" || literal == "nanf")
 	{
 		std::cout << "float: " << literal << std::endl;
 		literal[literal.length() - 1] = 0;
