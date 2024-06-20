@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:09:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/19 12:48:27 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/20 17:20:45 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ScalarConverter::convert(std::string literal)
 	double	nbDouble = atof(literal.c_str());
 	float	nbFloat = static_cast<float>(nbDouble);
 	
-	if (!nbDouble && literal[0] >= 32 && literal[0] <= 126)
+	if (!nbDouble && literal[0] >= 32 && literal[0] <= 126 && literal[0] != '0')
 	{
 		std::cout << "char: '" << literal[0] << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(literal[0]) << std::endl;
