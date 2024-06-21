@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:09:04 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/20 17:20:45 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:47:38 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ void ScalarConverter::convert(std::string literal)
 	else
 	{
 		std::cout << "float: " << nbFloat;
-		if (is_float || nbFloat == static_cast<int>(nbFloat))
+		if ((is_float || nbFloat == static_cast<int>(nbFloat)) && nbDouble < 1000000)
 			std::cout << ".0";
 		std::cout << 'f' << std::endl;
 
 		std::cout << "double: " << nbDouble;
-		if (is_double || nbDouble == static_cast<int>(nbDouble))
+		if ((is_double || nbDouble == static_cast<int>(nbDouble)) && nbDouble < 1000000)
 			std::cout << ".0";
 		std::cout << std::endl;
 	}
