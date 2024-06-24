@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 10:21:38 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/21 13:08:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/21 14:44:47 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int main(int, char**)
 				std::cerr << "didn't save the same value!!" << std::endl;
 				return 1;
 			}
-			else
-				std::cout << numbers[i] << std::endl;
 		}
 		try
 		{
