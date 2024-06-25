@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:08:45 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/24 15:56:46 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/25 09:21:07 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,24 @@
 
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
 
 class Span
 {
 	private:
 		unsigned int _N;
-		std::vector<int> _vect;
+		std::vector<int> _numbers;
 	
 	public:
 		Span();
 		Span(unsigned int N);
-		Span(Span& cp);
-		Span& operator=(Span& other);
+		Span(const Span& cp);
+		Span& operator=(const Span& other);
 		~Span();
 
-		void			addNumber(int nb);
+		void addNumber(int nb);
+		void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
 
