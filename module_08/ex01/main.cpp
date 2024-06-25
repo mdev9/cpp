@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:08:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 12:34:55 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:38:09 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 	{
 		std::cout << "Shortest Span: " << sp3.shortestSpan() << std::endl;
 	}
-	catch (Span::SpanIsImpossibleException &e)
+	catch (const Span::SpanIsImpossibleException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -47,7 +47,7 @@ int main()
 	{
 		std::cout << "Shortest Span: " << sp3.shortestSpan() << std::endl;
 	}	
-	catch (Span::SpanIsImpossibleException &e)
+	catch (const Span::SpanIsImpossibleException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -56,7 +56,7 @@ int main()
 	{
 		sp.addNumber(15);
 	}
-	catch (Span::SpanIsFullException &e)
+	catch (const Span::SpanIsFullException &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
