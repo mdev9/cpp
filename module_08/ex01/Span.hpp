@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:08:45 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 09:21:07 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:19:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ class Span
 		class SpanIsFullException: public std::exception
 		{
 			public:
-				const char	*what(void) throw();
+				const char	*what(void) const throw();
 		};
 		class SpanIsImpossibleException: public std::exception
 		{
 			public:
-				const char	*what(void) throw();
+				const char	*what(void) const throw();
 		};
 };
 

@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:31:44 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 09:30:07 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/25 11:19:45 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ unsigned int	Span::longestSpan()
 	return longestSpan;
 }
 
-const char *Span::SpanIsFullException::what(void) throw()
+const char *Span::SpanIsFullException::what(void) const throw()
 {
 	return "Span is full!";
 }
 
-const char *Span::SpanIsImpossibleException::what(void) throw()
+const char *Span::SpanIsImpossibleException::what(void) const throw()
 {
 	return "Span is impossible!";
 }

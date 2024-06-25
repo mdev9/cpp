@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:08:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 09:34:55 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:34:55 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 int main()
 {
-	// Span is full exception
-	// Span is impossible exception with 0 numbers
-	// Span is impossible exception with 1 number
-	
-	{
-
-	}
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -37,5 +30,35 @@ int main()
 	sp2.addNumber(15);
 	std::cout << "Shortest Span: " << sp2.shortestSpan() << std::endl;
 	std::cout << "Longest Span: " << sp2.longestSpan() << std::endl;
+
+	// Span is impossible exception with 0 numbers
+	Span sp3(1);
+	try
+	{
+		std::cout << "Shortest Span: " << sp3.shortestSpan() << std::endl;
+	}
+	catch (Span::SpanIsImpossibleException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	sp.addNumber(1);
+	// Span is impossible exception with 1 number
+	try
+	{
+		std::cout << "Shortest Span: " << sp3.shortestSpan() << std::endl;
+	}	
+	catch (Span::SpanIsImpossibleException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	// Span is full exception
+	try
+	{
+		sp.addNumber(15);
+	}
+	catch (Span::SpanIsFullException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }
