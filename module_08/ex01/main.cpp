@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:08:30 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 12:38:09 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:36:16 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-	sp.addNumber(1);
+	sp3.addNumber(1);
 	// Span is impossible exception with 1 number
 	try
 	{
@@ -54,7 +54,7 @@ int main()
 	// Span is full exception
 	try
 	{
-		sp.addNumber(15);
+		sp3.addNumber(15);
 	}
 	catch (const Span::SpanIsFullException &e)
 	{

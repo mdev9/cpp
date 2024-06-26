@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:31:44 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/25 11:19:45 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:36:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ unsigned int	Span::longestSpan()
 
 	for (unsigned int i = 0; i < _numbers.size(); i++)
 	{
-		for (unsigned int j = 0; j < _numbers.size(); j++)
+		for (unsigned int j = i; j < _numbers.size(); j++)
 		{
 			currSpan = std::abs(_numbers[i] - _numbers[j]);
 			if (currSpan > longestSpan)
