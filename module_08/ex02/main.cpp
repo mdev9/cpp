@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 19:01:02 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/26 10:20:52 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:15:00 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ int main()
 		std::cout << *it << std::endl; // 5 3 5 737 0
 		++it;
 	}
+	std::cout << std::endl;
 	std::stack<int> s(mstack);
+
+	
+	MutantStack<int> mstack2;
+	for (int i = 0; i < 10; i++)
+		mstack2.push(i);
+	MutantStack<int>::iterator it2 = mstack2.begin();
+	MutantStack<int>::iterator ite2 = mstack2.end();
+	while (it2 != ite2)
+	{
+		std::cout << *ite2 << std::endl;
+		ite2--;
+	}
 	return 0;
 }
