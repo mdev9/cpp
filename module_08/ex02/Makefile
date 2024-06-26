@@ -1,7 +1,6 @@
 CCXX = c++
 
-SRCS_RAW =	main.cpp\
-			Span.cpp
+SRCS_RAW =	main.cpp
 
 OBJS_DIR = objs/
 
