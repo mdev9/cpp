@@ -1,6 +1,7 @@
 CCXX = c++
 
-SRCS_RAW =	main.cpp
+SRCS_RAW =	main.cpp\
+			BitcoinExchange.cpp
 
 OBJS_DIR = objs/
 
