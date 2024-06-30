@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:00:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/27 10:18:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/30 10:11:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,12 +143,24 @@ void BitcoinExchange::exchange(std::string entry)
 
 float BitcoinExchange::getValue(std::string date)
 {
-	//iterate over map and look for closest date
 	std::map<std::string, float>::iterator itr;
+	std::map<std::string, float>::iterator itr_closest = _map.begin();
+	size_t closest_i = 0;
 	for (itr = _map.begin(); itr != _map.end(); ++itr)
 	{
-		if (itr->first )
+		std::string curr_date = itr->first;
+		size_t i = 0;
+		while (curr_date[i] == date[i])
+			i++;
+		if (i == date.length())
+			return itr->second;
+		else if (i > closest_i || (i == closest_i && curr_date[i] < date[i]))
+		{
+			closest_i = i;
+			itr_closest = itr;
+		}
 	}
+	return itr_closest->second;
 }
 
 const char *BitcoinExchange::InvalidDatabaseException::what(void) throw()

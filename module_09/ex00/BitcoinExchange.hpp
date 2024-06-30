@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:01:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/27 10:32:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/30 09:53:59 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,6 @@ class BitcoinExchange
 		{
 			public:
 				const char	*what(void)	throw();
-		};
-		class Date
-		{
-			private:
-				int _year;
-				int _month;
-				int _day;
-			public:
-				Date& operator
 		};
 };
 
