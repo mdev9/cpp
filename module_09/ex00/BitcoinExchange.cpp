@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:00:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/30 10:11:29 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/06/30 13:45:19 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ float BitcoinExchange::getValue(std::string date)
 	{
 		std::string curr_date = itr->first;
 		size_t i = 0;
-		while (curr_date[i] == date[i])
+		while (curr_date[i] == date[i] && i < date.length())
 			i++;
 		if (i == date.length())
 			return itr->second;
