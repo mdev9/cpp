@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 10:13:43 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/30 14:26:37 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/01 11:33:14 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	try
 	{
 		RPN rpn(argv[1]);
-		std::cout << rpn.calculate() << std::endl;
+		std::cout << rpn.getRes() << std::endl;
 	}
 	catch (RPN::ErrorException &e)
 	{

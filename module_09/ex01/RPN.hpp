@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 10:14:40 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/01 08:18:08 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/01 11:41:34 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class RPN
 {
 	private:
-		std::stack<char> stack;
+		std::stack<int>	stack;
 	
 	public:
 		RPN();
@@ -27,7 +27,8 @@ class RPN
 		RPN(RPN& cp);
 		RPN& operator=(RPN& other);
 		~RPN();
-		int calculate();
+		int	popTop();
+		int	getRes();
 
 	class ErrorException: public std::exception
 	{
