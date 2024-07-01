@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 10:14:40 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/01 07:43:41 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/01 08:18:08 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class RPN
 	class ErrorException: public std::exception
 	{
 		public:
-			const char *what(void) throw();
+			const char *what(void) const throw();
 	};
 };
 
