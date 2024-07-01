@@ -6,12 +6,11 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 13:51:21 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/01 13:46:34 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/01 14:11:17 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <cstdlib>
 
 RPN::RPN()
 {
@@ -54,18 +53,6 @@ int	RPN::popTop()
 	return res;
 }
 
-#include <iostream>
-void	printStack(std::stack<int> s)
-{
-	if (s.empty())
-		return;
-	int x = s.top();
-	s.pop();
-	printStack(s);
-	std::cout << x << " ";
-	s.push(x);
-}
-
 RPN::RPN(std::string args)
 {
 	for (int i = 0; args[i]; i++)
@@ -77,7 +64,6 @@ RPN::RPN(std::string args)
 		{
 			if (isOperator(c))
 			{
-				std::cout << c << std::endl;
 				if (stack.size() < 2)
 					throw ErrorException();
 				if (c == '+')
@@ -90,12 +76,16 @@ RPN::RPN(std::string args)
 				if (c == '*')
 					stack.push(popTop() * popTop());
 				if (c == '/')
-					stack.push(popTop() / popTop());
+				{
+					int tmp = popTop();
+					int tmp2 = popTop();
+					if (tmp == 0 || tmp2 == 0)
+						throw ErrorException();
+					stack.push(tmp2 / tmp);
+				}
 			}
 			else
 				stack.push(c - 48);
-			printStack(stack);
-			std::cout << std::endl;
 		}
 		else
 			throw ErrorException();
@@ -104,5 +94,7 @@ RPN::RPN(std::string args)
 
 int	RPN::getRes()
 {
+	if (stack.size() != 1)
+		throw ErrorException();
 	return stack.top();
 }
