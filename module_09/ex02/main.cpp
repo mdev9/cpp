@@ -6,63 +6,36 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:12:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/03 10:26:24 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:17:46 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <list>
+#include "PmergeMe.hpp"
 #include <iostream>
+#include <sstream>
 
-std::list<int> createPairs(std::list<int> lst)
+int main(int argc, char* argv[])
 {
-	std::list<int> splitLst;
-	std::list<int> tmpLst;
+    if (argc < 2)
+        return 0;
 
-	for (std::list<int>::iterator i = lst.begin(); i != lst.end(); ++i)
+    std::vector<int> input;
+    for (int i = 1; i < argc; ++i)
 	{
-		tmpSize = tmpLst.size();
-		
-	}
-}
+        int number;
+        std::istringstream iss(argv[i]);
+        if (!(iss >> number) || number <= 0)
+		{
+            std::cerr << "Error: Invalid input" << std::endl;
+            return 1;
+        }
+        input.push_back(number);
+    }
 
-std::list<int> mergeInsertionSort(std::list<int> lst)
-{
-	bool isOdd = lst.size() % 2;
-	if (isOdd)
-	{
-		int straggler = lst.back();
-		lst.pop_back();
-	}
-
-	//split lst
-	
-	//sort splited lst
-	
-	//recursively sort the pairs by their largest element
-	
-	std::list<int> sortedLst = //create lst
-
-	return sortedLst;
-}
-
-int	main(int argc, char **argv)
-{
-	std::list<int> lst;
-	std::list<int> sortedLst;
-
-	std::cout << "Before:\t";
-	for (int i = 1; i < argc; i++)
-	{
-		std::cout << ' ' << argv[i];
-		lst.push_back(atoi(argv[i]));
-	}
-	std::cout << std::endl;
-
-	sortedLst = mergeInsertionSort(lst);
-
-	std::cout << "After:\t";
-	for (std::list<int>::iterator i = sortedLst.begin(); i != sortedLst.end(); ++i)
-		std::cout << ' ' << *i;
-	std::cout << std::endl;
-	
+    PmergeMe sorter(input);
+    sorter.displayBefore();
+    sorter.sort();
+    sorter.displayAfter();
+	sorter.displayTimes();
+    return 0;
 }
