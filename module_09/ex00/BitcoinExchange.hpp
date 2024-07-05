@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:01:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/30 09:53:59 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:28:11 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ class BitcoinExchange
 		class InvalidDatabaseException: public std::exception
 		{
 			public:
-				const char	*what(void)	throw();
+				const char	*what(void)	const throw();
 		};
 		class InvalidDatabaseEntryException: public std::exception
 		{
 			public:
-				const char	*what(void)	throw();
+				const char	*what(void)	const throw();
 		};
 };
 

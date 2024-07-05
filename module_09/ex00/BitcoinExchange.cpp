@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:00:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/30 13:45:19 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:28:48 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,12 +163,12 @@ float BitcoinExchange::getValue(std::string date)
 	return itr_closest->second;
 }
 
-const char *BitcoinExchange::InvalidDatabaseException::what(void) throw()
+const char *BitcoinExchange::InvalidDatabaseException::what(void) const throw()
 {
 	return "Error: invalid database file!";
 }
 
-const char *BitcoinExchange::InvalidDatabaseEntryException::what(void) throw()
+const char *BitcoinExchange::InvalidDatabaseEntryException::what(void) const throw()
 {
 	return "Error: invalid database entry!";
 }
