@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:24:54 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 09:43:36 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:47:55 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ class PmergeMe
 		double listTime;
 
 		void sortEachPair(std::vector<std::pair<int, int> >& pairs);
-		void mergeInsertSortVector(std::vector<int> &vector);
-		void merge(std::vector<int> &vector, std::vector<int> larger_elements);
-		void insert(std::vector<int> &vector, std::vector<std::pair<int, int> > &pairs);
-		void mergeInsertSortList(std::list<int> &list);
+		template <typename Container>
+		void mergeInsertSort(Container &container);
+		template <typename Container>
+		void merge(Container &container, std::vector<int> larger_elements);
+		template <typename Container>
+		void insert(Container &container, std::vector<std::pair<int, int> > &pairs);
 };
 
 #endif
