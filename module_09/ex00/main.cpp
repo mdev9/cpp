@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:02:35 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/06/27 09:45:55 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:34:52 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,9 @@ int	main(int argc, char **argv)
 		std::cout << e.what() << std::endl;
 		return 1;
 	}
-	return 0;
+	catch (BitcoinExchange::InvalidDatabaseEntryException &e)
+	{
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
 }

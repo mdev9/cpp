@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:00:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 11:28:48 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:52:16 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &other)
 	return (*this);
 }
 
-BitcoinExchange::~BitcoinExchange()
-{
-	//delete map
-}
+BitcoinExchange::~BitcoinExchange() {}
 
 bool	isDateValid(int day, int month, int year)
 {
@@ -89,7 +86,10 @@ void BitcoinExchange::readDatabase()
 		}
 	}
 	else
+	{
 		std::cout << "Couldn't open file " << _database << std::endl;
+		throw InvalidDatabaseException();
+	}
 }
 
 void BitcoinExchange::readEntry(std::string entry)
@@ -143,24 +143,10 @@ void BitcoinExchange::exchange(std::string entry)
 
 float BitcoinExchange::getValue(std::string date)
 {
-	std::map<std::string, float>::iterator itr;
-	std::map<std::string, float>::iterator itr_closest = _map.begin();
-	size_t closest_i = 0;
-	for (itr = _map.begin(); itr != _map.end(); ++itr)
-	{
-		std::string curr_date = itr->first;
-		size_t i = 0;
-		while (curr_date[i] == date[i] && i < date.length())
-			i++;
-		if (i == date.length())
-			return itr->second;
-		else if (i > closest_i || (i == closest_i && curr_date[i] < date[i]))
-		{
-			closest_i = i;
-			itr_closest = itr;
-		}
-	}
-	return itr_closest->second;
+	std::map<std::string, float>::iterator itr = _map.lower_bound(date);
+	if (itr != _map.begin())
+		--itr;
+	return itr->second;
 }
 
 const char *BitcoinExchange::InvalidDatabaseException::what(void) const throw()

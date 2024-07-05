@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:12:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 10:24:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:56:16 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	{
         int number;
         std::istringstream iss(argv[i]);
-        if (!(iss >> number) || number <= 0)
+        if (!(iss >> number) || number < 0)
 		{
             std::cerr << "Error: Invalid input" << std::endl;
             return 1;
