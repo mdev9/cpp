@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:26 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 09:57:49 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:24:03 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void PmergeMe::insert(std::vector<int> &vector, std::vector<std::pair<int, int> 
 {
     for (size_t i = 0; i < pairs.size(); ++i)
 	{        
-		std::cout << "Inserting smaller element: " << pairs[i].first << std::endl;
+		//std::cout << "Inserting smaller element: " << pairs[i].first << std::endl;
 
 		size_t left = 0;
 		size_t right = vector.size();
@@ -115,10 +115,10 @@ void PmergeMe::insert(std::vector<int> &vector, std::vector<std::pair<int, int> 
 		}
 		vector.insert(vector.begin() + left, pairs[i].first);
 
-		std::cout << "Array after insertion: " << std::endl;
-        for (size_t j = 0; j < vector.size(); ++j)
-            std::cout << vector[j] << " ";
-        std::cout << std::endl;
+		//std::cout << "Array after insertion: " << std::endl;
+        //for (size_t j = 0; j < vector.size(); ++j)
+        //    std::cout << vector[j] << " ";
+        //std::cout << std::endl;
 	}
 }
 
@@ -128,10 +128,10 @@ void PmergeMe::merge(std::vector<int> &vector, std::vector<int> larger_elements)
     for (size_t i = 0; i < larger_elements.size(); ++i)
 		vector.push_back(larger_elements[i]);
 
-	std::cout << "Merged larger elements: " << std::endl;
-    for (size_t i = 0; i < vector.size(); ++i)
-        std::cout << vector[i] << " ";
-    std::cout << std::endl;
+	//std::cout << "Merged larger elements: " << std::endl;
+    //for (size_t i = 0; i < vector.size(); ++i)
+    //   std::cout << vector[i] << " ";
+    //std::cout << std::endl;
 }
 
 void PmergeMe::mergeInsertSortVector(std::vector<int> &vector)
@@ -140,29 +140,29 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &vector)
 
     std::vector<std::pair<int, int> > pairs = create_pairs(vector);
 
-    std::cout << "Pairs created: " << std::endl;
-	printPairs(pairs);
+    //std::cout << "Pairs created: " << std::endl;
+	//printPairs(pairs);
 
     sortEachPair(pairs);
 
-    std::cout << "Pairs sorted: " << std::endl;
-	printPairs(pairs);
+    //std::cout << "Pairs sorted: " << std::endl;
+	//printPairs(pairs);
 
     std::vector<int> larger_elements;
     for (size_t i = 0; i < pairs.size(); ++i)
 		larger_elements.push_back(pairs[i].second);
 
-	std::cout << "Larger elements to sort recursively: " << std::endl;
-    for (size_t i = 0; i < larger_elements.size(); ++i)
-		std::cout << larger_elements[i] << " ";
-	std::cout << std::endl;
+	//std::cout << "Larger elements to sort recursively: " << std::endl;
+    //for (size_t i = 0; i < larger_elements.size(); ++i)
+	//	std::cout << larger_elements[i] << " ";
+	//std::cout << std::endl;
 
 	PmergeMe::mergeInsertSortVector(larger_elements);
 
-	std::cout << "Larger elements sorted: " << std::endl;
-    for (size_t i = 0; i < larger_elements.size(); ++i)
-        std::cout << larger_elements[i] << " ";
-    std::cout << std::endl;
+	//std::cout << "Larger elements sorted: " << std::endl;
+    //for (size_t i = 0; i < larger_elements.size(); ++i)
+    //    std::cout << larger_elements[i] << " ";
+    //std::cout << std::endl;
 
 	PmergeMe::merge(vector, larger_elements);
 	PmergeMe::insert(vector, pairs);
