@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:26 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 10:56:01 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:13:26 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void PmergeMe::sort()
     clock_t start = clock();
     mergeInsertSort(sorted_vector);
     clock_t end = clock();
-    vectorTime = double(end - start) / CLOCKS_PER_SEC;
+    vectorTime = double(end - start) / (CLOCKS_PER_SEC / 1000000);
 
     start = clock();
     mergeInsertSort(sorted_list);
     end = clock();
-    listTime = double(end - start) / CLOCKS_PER_SEC;
+    listTime = double(end - start) / (CLOCKS_PER_SEC / 1000000);
 }
 
 void PmergeMe::displayBefore() const
@@ -70,8 +70,8 @@ void PmergeMe::displayAfter() const
 
 void PmergeMe::displayTimes() const
 {
-    std::cout << "Time to process a range of " << original.size() << " elements with std::vector: " << vectorTime * 1000 << " milliseconds\n";
-    std::cout << "Time to process a range of " << original.size() << " elements with std::list: " << listTime * 1000 << " milliseconds\n";
+    std::cout << "Time to process a range of " << original.size() << " elements with std::vector: " << vectorTime << " microseconds\n";
+    std::cout << "Time to process a range of " << original.size() << " elements with std::list: " << listTime << " microseconds\n";
 }
 
 template <typename Container>
@@ -116,11 +116,12 @@ void PmergeMe::insert(Container &container, std::vector<std::pair<int, int> > &p
 		//std::cout << "Inserting smaller element: " << pairs[i].first << std::endl;
 
 		typename Container::iterator it = std::lower_bound(container.begin(), container.end(), pairs[i].first);
-		container.insert(it, pairs[i].first);
+		if (it == container.end() || *it != pairs[i].first)
+			container.insert(it, pairs[i].first);
 
 		//std::cout << "Array after insertion: " << std::endl;
-        //for (size_t j = 0; j < vector.size(); ++j)
-        //    std::cout << vector[j] << " ";
+		//for (typename Container::iterator it = container.begin(); it != container.end(); ++it)
+		//	std::cout << *it << " ";
         //std::cout << std::endl;
 	}
 }
@@ -133,8 +134,8 @@ void PmergeMe::merge(Container &container, std::vector<int> larger_elements)
 		container.push_back(larger_elements[i]);
 
 	//std::cout << "Merged larger elements: " << std::endl;
-    //for (size_t i = 0; i < vector.size(); ++i)
-    //   std::cout << vector[i] << " ";
+	//for (typename Container::iterator it = container.begin(); it != container.end(); ++it)
+	//	std::cout << *it << " ";
     //std::cout << std::endl;
 }
 
