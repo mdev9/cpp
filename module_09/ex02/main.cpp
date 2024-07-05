@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:12:59 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/04 11:17:46 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 09:06:41 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int main(int argc, char* argv[])
     sorter.displayBefore();
     sorter.sort();
     sorter.displayAfter();
-	sorter.displayTimes();
+	//sorter.displayTimes();
     return 0;
 }

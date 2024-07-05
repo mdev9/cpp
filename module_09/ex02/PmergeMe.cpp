@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:25:26 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/04 12:08:26 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 09:57:49 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ PmergeMe& PmergeMe::operator=(PmergeMe& other)
 
 PmergeMe::~PmergeMe() {}
 
-void PmergeMe::sort() {
+void PmergeMe::sort()
+{
     sorted_vector = original;
     sorted_list.assign(original.begin(), original.end());
 
@@ -44,181 +45,125 @@ void PmergeMe::sort() {
     vectorTime = double(end - start) / CLOCKS_PER_SEC;
 
     start = clock();
-    mergeInsertSortList(sorted_list);
+    //mergeInsertSortList(sorted_list);
     end = clock();
     listTime = double(end - start) / CLOCKS_PER_SEC;
 }
 
-void PmergeMe::displayBefore() const {
+void PmergeMe::displayBefore() const
+{
     std::cout << "Before: ";
-    for (size_t i = 0; i < original.size(); ++i) {
+    for (size_t i = 0; i < original.size(); ++i)
         std::cout << original[i] << " ";
-    }
     std::cout << std::endl;
 }
 
-void PmergeMe::displayAfter() const {
+void PmergeMe::displayAfter() const
+{
     std::cout << "After: ";
-    for (size_t i = 0; i < sorted_vector.size(); ++i) {
+    for (size_t i = 0; i < sorted_vector.size(); ++i)
         std::cout << sorted_vector[i] << " ";
-    }
     std::cout << std::endl;
 }
 
-void PmergeMe::displayTimes() const {
+void PmergeMe::displayTimes() const
+{
     std::cout << "Time to process a range of " << original.size() << " elements with std::vector: " << vectorTime << " seconds\n";
     std::cout << "Time to process a range of " << original.size() << " elements with std::list: " << listTime << " seconds\n";
 }
 
-int PmergeMe::jacobsthal(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-    return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
-}
-
-std::vector<int> PmergeMe::buildJacobInsertionSequence(int length) {
-    std::vector<int> sequence;
-    int index = 3;
-    while (jacobsthal(index) < length - 1) {
-        sequence.push_back(jacobsthal(index));
-        ++index;
-    }
-    return sequence;
-}
-
-std::vector<std::pair<int, int> > create_pairs(const std::vector<int>& a) {
+std::vector<std::pair<int, int> > create_pairs(const std::vector<int>& a)
+{
     std::vector<std::pair<int, int> > split_array;
-    for (size_t i = 0; i < a.size(); i += 2) {
-        if (i + 1 < a.size()) {
+    for (size_t i = 0; i < a.size(); i += 2)
+	{
+        if (i + 1 < a.size())
             split_array.push_back(std::make_pair(a[i], a[i + 1]));
-        } else {
+        else
             split_array.push_back(std::make_pair(a[i], a[i]));
-        }
     }
     return split_array;
 }
 
-void sort_each_pair(std::vector<std::pair<int, int> >& pairs) {
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        if (pairs[i].first > pairs[i].second) {
-            std::swap(pairs[i].first, pairs[i].second);
-        }
-    }
+void PmergeMe::sortEachPair(std::vector<std::pair<int, int> >& pairs)
+{
+    for (size_t i = 0; i < pairs.size(); ++i)
+		if (pairs[i].first > pairs[i].second)
+			std::swap(pairs[i].first, pairs[i].second);
 }
 
-void insert(const std::pair<int, int>& element, std::vector<std::pair<int, int> >& A, int n) {
-    if (n < 0) {
-        A[0] = element;
-    } else if (element.second >= A[n].second) {
-        if (n == static_cast<int>(A.size()) - 1) {
-            A.push_back(element);
-        } else {
-            A[n + 1] = element;
-        }
-    } else {
-        if (n == static_cast<int>(A.size()) - 1) {
-            A.push_back(A[n]);
-        } else {
-            A[n + 1] = A[n];
-            insert(element, A, n - 1);
-        }
-    }
+void printPairs(std::vector<std::pair<int, int> > pairs)
+{
+	for (std::vector<std::pair<int, int> >::iterator itr = pairs.begin(); itr != pairs.end(); itr++)
+		std::cout << '(' << itr->first << ' ' << itr->second << ')' << std::endl;
 }
 
-void insertion_sort_pairs(std::vector<std::pair<int, int> >& A, int n) {
-    if (n < 1) return;
-    insertion_sort_pairs(A, n - 1);
-    insert(A[n], A, n - 1);
+void PmergeMe::insert(std::vector<int> &vector, std::vector<std::pair<int, int> > &pairs)
+{
+    for (size_t i = 0; i < pairs.size(); ++i)
+	{        
+		std::cout << "Inserting smaller element: " << pairs[i].first << std::endl;
+
+		size_t left = 0;
+		size_t right = vector.size();
+		while (left < right) {
+			size_t mid = (left + right) / 2;
+			if (pairs[i].first < vector[mid])
+				right = mid;
+			else
+				left = mid + 1;
+		}
+		vector.insert(vector.begin() + left, pairs[i].first);
+
+		std::cout << "Array after insertion: " << std::endl;
+        for (size_t j = 0; j < vector.size(); ++j)
+            std::cout << vector[j] << " ";
+        std::cout << std::endl;
+	}
 }
 
-void sort_by_larger_value(std::vector<std::pair<int, int> >& pairs) {
-    insertion_sort_pairs(pairs, pairs.size() - 1);
+void PmergeMe::merge(std::vector<int> &vector, std::vector<int> larger_elements)
+{
+    vector.clear();
+    for (size_t i = 0; i < larger_elements.size(); ++i)
+		vector.push_back(larger_elements[i]);
+
+	std::cout << "Merged larger elements: " << std::endl;
+    for (size_t i = 0; i < vector.size(); ++i)
+        std::cout << vector[i] << " ";
+    std::cout << std::endl;
 }
 
-void PmergeMe::mergeInsertSortVector(std::vector<int>& arr) {
-    bool hasStraggler = arr.size() % 2 != 0;
-    int straggler = hasStraggler ? arr.back() : 0;
-    if (hasStraggler) arr.pop_back();
+void PmergeMe::mergeInsertSortVector(std::vector<int> &vector)
+{
+    if (vector.size() <= 1) return;
 
-    std::vector<std::pair<int, int> > pairs = create_pairs(arr);
-    sort_each_pair(pairs);
-    sort_by_larger_value(pairs);
+    std::vector<std::pair<int, int> > pairs = create_pairs(vector);
 
-    std::vector<int> S, pend;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        S.push_back(pairs[i].second);
-        pend.push_back(pairs[i].first);
-    }
-    S.insert(S.begin(), pend[0]);
-    pend.erase(pend.begin());
+    std::cout << "Pairs created: " << std::endl;
+	printPairs(pairs);
 
-    std::vector<int> jacob_insertion_sequence = buildJacobInsertionSequence(pend.size());
+    sortEachPair(pairs);
 
-    size_t iterator = 0;
-    while (iterator < pend.size()) {
-        int item;
-        if (iterator < jacob_insertion_sequence.size() && jacob_insertion_sequence[iterator] < static_cast<int>(pend.size())) {
-            item = pend[jacob_insertion_sequence[iterator] - 1];
-        } else {
-            item = pend[iterator];
-        }
+    std::cout << "Pairs sorted: " << std::endl;
+	printPairs(pairs);
 
-        std::vector<int>::iterator insertion_point = std::lower_bound(S.begin(), S.end(), item);
-        if (insertion_point == S.end() || *insertion_point != item) {
-            S.insert(insertion_point, item);
-        }
-        ++iterator;
-    }
+    std::vector<int> larger_elements;
+    for (size_t i = 0; i < pairs.size(); ++i)
+		larger_elements.push_back(pairs[i].second);
 
-    if (hasStraggler) {
-        std::vector<int>::iterator insertion_point = std::lower_bound(S.begin(), S.end(), straggler);
-        if (insertion_point == S.end() || *insertion_point != straggler) {
-            S.insert(insertion_point, straggler);
-        }
-    }
+	std::cout << "Larger elements to sort recursively: " << std::endl;
+    for (size_t i = 0; i < larger_elements.size(); ++i)
+		std::cout << larger_elements[i] << " ";
+	std::cout << std::endl;
 
-    arr = S;
-}
+	PmergeMe::mergeInsertSortVector(larger_elements);
 
-void PmergeMe::mergeInsertSortList(std::list<int>& arr) {
-    bool hasStraggler = arr.size() % 2 != 0;
-    int straggler = hasStraggler ? arr.back() : 0;
-    if (hasStraggler) arr.pop_back();
+	std::cout << "Larger elements sorted: " << std::endl;
+    for (size_t i = 0; i < larger_elements.size(); ++i)
+        std::cout << larger_elements[i] << " ";
+    std::cout << std::endl;
 
-    std::vector<int> arr_vec(arr.begin(), arr.end());
-    std::vector<std::pair<int, int> > pairs = create_pairs(arr_vec);
-    sort_each_pair(pairs);
-    sort_by_larger_value(pairs);
-
-    std::list<int> S, pend;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        S.push_back(pairs[i].second);
-        pend.push_back(pairs[i].first);
-    }
-
-    std::vector<int> jacob_insertion_sequence = buildJacobInsertionSequence(pend.size());
-
-    size_t iterator = 0;
-    while (iterator < pend.size()) {
-        int item;
-        if (iterator < jacob_insertion_sequence.size() && jacob_insertion_sequence[iterator] - 1 < static_cast<int>(pend.size())) {
-            std::list<int>::iterator it = pend.begin();
-            std::advance(it, jacob_insertion_sequence[iterator] - 1);
-            item = *it;
-        } else {
-            item = *pend.begin();
-        }
-
-        std::list<int>::iterator insertion_point = std::lower_bound(S.begin(), S.end(), item);
-        S.insert(insertion_point, item);
-        pend.pop_front();
-        ++iterator;
-    }
-
-    if (hasStraggler) {
-        std::list<int>::iterator insertion_point = std::lower_bound(S.begin(), S.end(), straggler);
-        S.insert(insertion_point, straggler);
-    }
-
-    arr = S;
+	PmergeMe::merge(vector, larger_elements);
+	PmergeMe::insert(vector, pairs);
 }

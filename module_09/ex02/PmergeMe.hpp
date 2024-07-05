@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:24:54 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/04 11:47:37 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 09:43:36 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ class PmergeMe
 		double vectorTime;
 		double listTime;
 
-		void mergeInsertSortVector(std::vector<int> &arr);
-		void mergeInsertSortList(std::list<int> &arr);
-
-		int jacobsthal(int n);
-		std::vector<int> buildJacobInsertionSequence(int length);
+		void sortEachPair(std::vector<std::pair<int, int> >& pairs);
+		void mergeInsertSortVector(std::vector<int> &vector);
+		void merge(std::vector<int> &vector, std::vector<int> larger_elements);
+		void insert(std::vector<int> &vector, std::vector<std::pair<int, int> > &pairs);
+		void mergeInsertSortList(std::list<int> &list);
 };
 
 #endif
