@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:00:06 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/05 17:52:16 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/08 07:54:35 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,15 @@ void BitcoinExchange::readDatabase()
 			infile.close();
 			throw InvalidDatabaseException();
 		}
+		int line_nb = 0;
 		while (infile)
 		{
+			line_nb++;
 			std::getline(infile, line);
 			if (line != "\n" && !line.empty())
 				this->readEntry(line);
+			if (line.empty() && line_nb == 1)
+				throw InvalidDatabaseException();
 		}
 	}
 	else

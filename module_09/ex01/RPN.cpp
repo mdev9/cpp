@@ -6,7 +6,7 @@
 /*   By: marde-vr <marde-vr@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 13:51:21 by marde-vr          #+#    #+#             */
-/*   Updated: 2024/07/01 14:11:17 by marde-vr         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:09:29 by marde-vr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ const char *RPN::ErrorException::what(void) const throw()
 	return "Error";
 }
 
-bool	isCharValid(char c)
-{
-	return ((c >= '0' && c <= '9') || c == '+' || c == '-' || c == '/' || c == '*');
-}
-
 bool	isOperator(char c)
 {
 	return (c == '+' || c == '-' || c == '/' || c == '*');
+}
+
+bool	isCharValid(char c)
+{
+	return ((c >= '0' && c <= '9') || isOperator(c));
 }
 
 int	RPN::popTop()
